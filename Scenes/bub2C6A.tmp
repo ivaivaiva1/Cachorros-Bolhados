@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://dp7guljax7l4"]
+
+[ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_lnspu"]
+[ext_resource type="Script" path="res://Scripts/bubble_moviment.gd" id="2_7glmv"]
+[ext_resource type="Texture2D" uid="uid://chqh8fbbnam38" path="res://Assets/Bubbles/Coloured/32x32/bubble_7.png" id="2_asl1m"]
+[ext_resource type="PackedScene" uid="uid://cbjkejexexgc" path="res://Scenes/cachorro_1.tscn" id="2_etxuh"]
+[ext_resource type="Script" path="res://Scripts/bubble_rotation.gd" id="5_hjhio"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_121i4"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+
+[sub_resource type="Animation" id="Animation_ntt4h"]
+resource_name = "bubble_anim"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3.2, 3.2), Vector2(2.9, 3.4), Vector2(2.8, 3.1), Vector2(2.9, 3.3), Vector2(3.3, 3.1), Vector2(2.9, 3.3), Vector2(2.7, 3.1), Vector2(2.9, 3), Vector2(3.2, 3), Vector2(3, 2.9), Vector2(3.2, 3.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0349066, 0.0523599, 0.10472, 0.0349066, 0.0698132, -0.0523599, -0.0349066, 0.0523599, -0.0698132, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ut7wk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.2, 3.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v16ft"]
+_data = {
+"RESET": SubResource("Animation_ut7wk"),
+"bubble_anim": SubResource("Animation_ntt4h")
+}
+
+[node name="Bolha1" type="CharacterBody2D"]
+scale = Vector2(3.2, 3.2)
+script = ExtResource("1_lnspu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+use_parent_material = true
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("2_asl1m")
+
+[node name="bubble_moviment" type="Node2D" parent="."]
+script = ExtResource("2_7glmv")
+
+[node name="bubble_rotation" type="Node2D" parent="."]
+script = ExtResource("5_hjhio")
+
+[node name="cachorro" parent="." instance=ExtResource("2_etxuh")]
+unique_name_in_owner = true
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_121i4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v16ft")
+}
+autoplay = "bubble_anim"
+speed_scale = 0.4
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

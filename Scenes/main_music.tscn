@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnilsueapih7w"]
+
+[ext_resource type="AudioStream" uid="uid://coanu8m74ljyo" path="res://Audio/soundtrack_cachorros_bolhados.mp3" id="1_uxvrv"]
+
+[node name="Main Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_uxvrv")
+autoplay = true

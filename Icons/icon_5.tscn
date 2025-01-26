@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpyy4hyl0syt1"]
+
+[ext_resource type="Texture2D" uid="uid://ddo4o7l12307f" path="res://Assets/Artes/Cachorro5.png" id="1_uyir1"]
+
+[node name="Icon5" type="Sprite2D"]
+position = Vector2(122, 15)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("1_uyir1")
+offset = Vector2(0, 56.195)

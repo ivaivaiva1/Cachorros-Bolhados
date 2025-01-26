@@ -1,0 +1,33 @@
+extends Node2D
+
+@onready var game_over_ui: Control = %game_over_ui
+@onready var score_label: Label = %actual_score
+@onready var recorde_label: Label = %recorde_score
+@onready var bump_player: AudioStreamPlayer2D = %BumpAudio
+
+func _ready() -> void:
+	GameManager.game_state = "Play"
+	GameManager.actual_score = 0
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("change_bg"):
+		bump_player.play()
+
+
+func _on_game_over_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bubble"):
+		#if GameManager.actual_score > SaveScore.easy_score:
+			#SaveScore.easy_score = GameManager.actual_score
+		#SaveScore.save_score()
+		game_over_ui.visible = true
+		score_label.text = str(GameManager.actual_score)
+		#recorde_label.text = str(SaveScore.load_score())
+		GameManager.game_state = "GameOver"
+
+
+func _on_play_again_button_down() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+
+
+func _on_main_menu_button_down() -> void:
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

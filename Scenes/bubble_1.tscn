@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp7guljax7l4"]
+
+[ext_resource type="Texture2D" uid="uid://chqh8fbbnam38" path="res://Assets/Bubbles/Coloured/32x32/bubble_7.png" id="2_asl1m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_121i4"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+
+[node name="Bolha1" type="Node2D"]
+scale = Vector2(3.2, 3.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+use_parent_material = true
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("2_asl1m")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_121i4")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

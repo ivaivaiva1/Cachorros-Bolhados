@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://cili3i8us0yag"]
+
+[ext_resource type="Script" path="res://Scripts/bubble_moviment.gd" id="1_g3s32"]
+[ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubble_1.tscn" id="1_wxjet"]
+[ext_resource type="Script" path="res://Scripts/bubble_container.gd" id="1_yrsw8"]
+[ext_resource type="PackedScene" uid="uid://cbjkejexexgc" path="res://Scenes/cachorro_1.tscn" id="2_vq6bb"]
+[ext_resource type="Script" path="res://Scripts/bubble_rotation.gd" id="4_is866"]
+[ext_resource type="AudioStream" uid="uid://djcf40yehn2lj" path="res://Audio/som_de_bolha_1.mp3" id="6_pawm8"]
+[ext_resource type="AudioStream" uid="uid://cydn8vngltban" path="res://Audio/som_de_bolha_2.mp3" id="7_cpoxx"]
+[ext_resource type="AudioStream" uid="uid://cjyrq2ykoyis3" path="res://Audio/som_de_bolha_3.mp3" id="8_pqbb5"]
+[ext_resource type="AudioStream" uid="uid://cx78vjayxu723" path="res://Audio/som_de_bolha_4.mp3" id="9_h2ujy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ad63q"]
+radius = 52.0865
+
+[sub_resource type="Animation" id="Animation_ut7wk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ntt4h"]
+resource_name = "bubble_anim"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 0.8), Vector2(0.9, 1.3), Vector2(1.1, 0.8), Vector2(1.2, 0.9), Vector2(0.9, 1.2), Vector2(0.8, 1.3), Vector2(1.1, 0.7), Vector2(1.3, 0.9), Vector2(0.9, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0349066, 0.0523599, 0.10472, 0.0349066, 0.0698132, -0.0523599, -0.0349066, 0.0523599, -0.0698132, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v16ft"]
+_data = {
+"RESET": SubResource("Animation_ut7wk"),
+"bubble_anim": SubResource("Animation_ntt4h")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ojbyx"]
+streams_count = 4
+stream_0/stream = ExtResource("6_pawm8")
+stream_1/stream = ExtResource("7_cpoxx")
+stream_2/stream = ExtResource("8_pqbb5")
+stream_3/stream = ExtResource("9_h2ujy")
+
+[node name="bubble_container_1" type="CharacterBody2D"]
+script = ExtResource("1_yrsw8")
+catioro_scene = ExtResource("2_vq6bb")
+
+[node name="bolha" parent="." instance=ExtResource("1_wxjet")]
+unique_name_in_owner = true
+
+[node name="Area2D" type="Area2D" parent="bolha" groups=["bubble"]]
+scale = Vector2(0.3125, 0.3125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bolha/Area2D"]
+shape = SubResource("CircleShape2D_ad63q")
+
+[node name="bubble_moviment" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_g3s32")
+
+[node name="bubble_rotation" type="Node2D" parent="."]
+script = ExtResource("4_is866")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_v16ft")
+}
+autoplay = "bubble_anim"
+speed_scale = 0.3
+
+[node name="cachorro" parent="." instance=ExtResource("2_vq6bb")]
+unique_name_in_owner = true
+
+[node name="BubbleAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_ojbyx")
+volume_db = 7.0
+
+[connection signal="button_down" from="bolha/Button" to="." method="_on_button_button_down"]
+
+[editable path="bolha"]

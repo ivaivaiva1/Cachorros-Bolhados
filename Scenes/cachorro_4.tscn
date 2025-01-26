@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdl1gi77lk0d6"]
+
+[ext_resource type="Script" path="res://Scripts/cachorros.gd" id="1_mo14q"]
+[ext_resource type="Texture2D" uid="uid://bp63fcej3u8g1" path="res://Assets/Artes/Cachorro4.png" id="2_x4etv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gs7ud"]
+radius = 105.105
+
+[node name="cachorro1" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_mo14q")
+dog_id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.42109e-14, 40)
+texture = ExtResource("2_x4etv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5, -20)
+shape = SubResource("CircleShape2D_gs7ud")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,128 @@
+[gd_scene load_steps=15 format=3 uid="uid://bo6ny83ggfd08"]
+
+[ext_resource type="Script" path="res://Scripts/background.gd" id="1_7i2dn"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_l3uyl"]
+[ext_resource type="Texture2D" uid="uid://db7k27i0hs5la" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/1.png" id="2_c407s"]
+[ext_resource type="Texture2D" uid="uid://cgduerxds5vtn" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/3.png" id="3_h3ni3"]
+[ext_resource type="Texture2D" uid="uid://dkq55s16pnm1g" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/4.png" id="4_jjbau"]
+[ext_resource type="Texture2D" uid="uid://b1suerugb57vq" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/5.png" id="5_2y2md"]
+[ext_resource type="Texture2D" uid="uid://bo2qtlvy3jvx2" path="res://HUD/Facil.png" id="6_0ltqn"]
+[ext_resource type="Texture2D" uid="uid://drv2hc5tv41o2" path="res://HUD/Muito Dificil.png" id="7_hujdo"]
+[ext_resource type="Texture2D" uid="uid://wubtpjkq7je8" path="res://HUD/Médio.png" id="8_fk4xh"]
+[ext_resource type="Texture2D" uid="uid://d3x6ibwskdsir" path="res://HUD/Dificil.png" id="9_bblcv"]
+[ext_resource type="VideoStream" path="res://Videos/intro.ogv" id="11_wmkdf"]
+[ext_resource type="Texture2D" uid="uid://ck1kx8m17yy2k" path="res://HUD 2/Exit.png" id="12_1oipa"]
+
+[sub_resource type="Gradient" id="Gradient_4ydco"]
+offsets = PackedFloat32Array(0.130435, 0.278261, 0.408696, 0.556522)
+colors = PackedColorArray(1, 1, 1, 1, 0.5274, 0.359042, 0.12334, 1, 0.689677, 0.469516, 0.16129, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vb3ui"]
+gradient = SubResource("Gradient_4ydco")
+width = 300
+height = 300
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_l3uyl")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -179.0
+offset_top = 11.0
+offset_right = 1741.0
+offset_bottom = 1099.0
+stream = ExtResource("11_wmkdf")
+
+[node name="Backgrounds" type="Node2D" parent="."]
+position = Vector2(-902, -545)
+scale = Vector2(2.4, 2.4)
+script = ExtResource("1_7i2dn")
+
+[node name="1" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(660, 386)
+texture = ExtResource("2_c407s")
+
+[node name="3" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(638, 339)
+texture = ExtResource("3_h3ni3")
+
+[node name="4" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(662, 387)
+texture = ExtResource("4_jjbau")
+
+[node name="5" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(661, 387)
+texture = ExtResource("5_2y2md")
+
+[node name="EasyButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 547.0
+offset_top = 79.0
+offset_right = 817.0
+offset_bottom = 203.0
+
+[node name="MediumButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 547.0
+offset_top = 229.0
+offset_right = 817.0
+offset_bottom = 353.0
+
+[node name="HardButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 547.0
+offset_top = 383.0
+offset_right = 817.0
+offset_bottom = 507.0
+
+[node name="Extreme" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 547.0
+offset_top = 529.0
+offset_right = 817.0
+offset_bottom = 653.0
+
+[node name="Facil" type="Sprite2D" parent="."]
+position = Vector2(683, 142.3)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_0ltqn")
+
+[node name="MuitoDificil" type="Sprite2D" parent="."]
+position = Vector2(683, 592.3)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_hujdo")
+
+[node name="Médio" type="Sprite2D" parent="."]
+position = Vector2(683, 292.3)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_fk4xh")
+
+[node name="Dificil" type="Sprite2D" parent="."]
+position = Vector2(683, 442.3)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_bblcv")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(969, 274)
+color = Color(0.76, 0.39064, 0.1444, 1)
+energy = 0.3
+texture = SubResource("GradientTexture2D_vb3ui")
+
+[node name="Exit" type="Sprite2D" parent="."]
+position = Vector2(174, 670)
+scale = Vector2(0.613924, 0.613924)
+texture = ExtResource("12_1oipa")
+
+[node name="ExitButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 58.0
+offset_top = 627.0
+offset_right = 288.0
+offset_bottom = 713.0
+
+[connection signal="button_down" from="EasyButton" to="." method="_on_easy_button_button_down"]
+[connection signal="button_down" from="MediumButton" to="." method="_on_medium_button_button_down"]
+[connection signal="button_down" from="HardButton" to="." method="_on_hard_button_button_down"]
+[connection signal="button_down" from="Extreme" to="." method="_on_extreme_button_down"]
+[connection signal="button_down" from="ExitButton" to="." method="_on_exit_button_button_down"]

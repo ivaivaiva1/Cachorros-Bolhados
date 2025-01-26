@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2cj22y8bkni4"]
+
+[ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/Bubble.tscn" id="1_ic48l"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Bolha" parent="." instance=ExtResource("1_ic48l")]
+position = Vector2(170, 164)
+
+[node name="Bolha2" parent="." instance=ExtResource("1_ic48l")]
+position = Vector2(509, 303)
+
+[node name="Bolha3" parent="." instance=ExtResource("1_ic48l")]
+position = Vector2(671, 99)
+
+[node name="Bolha4" parent="." instance=ExtResource("1_ic48l")]
+position = Vector2(934, 366)
+
+[node name="Bolha5" parent="." instance=ExtResource("1_ic48l")]
+position = Vector2(301, 454)
+
+[node name="Bolha6" parent="." instance=ExtResource("1_ic48l")]
+position = Vector2(723, 515)

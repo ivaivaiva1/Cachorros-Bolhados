@@ -1,0 +1,36 @@
+extends Node2D
+
+func _on_easy_button_button_down() -> void:
+	GameManager.spawn_cooldown = 0.7
+	GameManager.fly_speed = 100
+	GameManager.tween_duration = 2.5
+	GameManager.tween_distance = 80
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+
+
+func _on_medium_button_button_down() -> void:
+	GameManager.spawn_cooldown = 0.4
+	GameManager.fly_speed = 100
+	GameManager.tween_duration = 2.5
+	GameManager.tween_distance = 80
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+
+
+func _on_hard_button_button_down() -> void:
+	GameManager.spawn_cooldown = 0.3
+	GameManager.fly_speed = 120
+	GameManager.tween_duration = 2.5
+	GameManager.tween_distance = 80
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+
+
+func _on_extreme_button_down() -> void:
+	GameManager.spawn_cooldown = 0.3
+	GameManager.fly_speed = 120
+	GameManager.tween_duration = 1
+	GameManager.tween_distance = 120
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+
+
+func _on_exit_button_button_down() -> void:
+	get_tree().quit()
