@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://5ittn553c65n" path="res://Assets/Artes/cachorro centralizado.png" id="1_nbets"]
 
 [node name="Icon1" type="Sprite2D"]
+z_index = -90
 position = Vector2(22, 15)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("1_nbets")

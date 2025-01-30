@@ -44,6 +44,7 @@ font_size = 70
 script = ExtResource("1_o3eg0")
 
 [node name="Backgrounds" type="Node2D" parent="."]
+z_index = -100
 position = Vector2(-902, -545)
 scale = Vector2(2.4, 2.4)
 script = ExtResource("1_ewpxn")
@@ -102,6 +103,15 @@ color = Color(0.76, 0.39064, 0.1444, 1)
 energy = 0.3
 texture = SubResource("GradientTexture2D_10nyw")
 
+[node name="IconsContainer" type="Node2D" parent="."]
+script = ExtResource("14_u7mvg")
+icon_scenes = Array[PackedScene]([ExtResource("15_665my"), ExtResource("16_jgue8"), ExtResource("17_bjif3"), ExtResource("18_tc81j"), ExtResource("19_8bqg7")])
+
+[node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("22_mx030")
+volume_db = 15.0
+
 [node name="KillDogsArea" type="Area2D" parent="." groups=["death"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillDogsArea"]
@@ -125,6 +135,7 @@ shape = SubResource("RectangleShape2D_f3cqs")
 [node name="game_over_ui" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 100
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -137,14 +148,34 @@ texture = ExtResource("13_lx0ty")
 [node name="actual_score" type="Label" parent="game_over_ui"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 205.0
-offset_top = 183.0
-offset_right = 1157.0
-offset_bottom = 533.0
+offset_left = 201.0
+offset_top = 170.0
+offset_right = 1153.0
+offset_bottom = 437.0
 text = "1500"
 label_settings = SubResource("LabelSettings_s2lrp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="game_mode" type="Label" parent="game_over_ui"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 201.0
+offset_top = 244.0
+offset_right = 1153.0
+offset_bottom = 511.0
+text = "game_mode"
+label_settings = SubResource("LabelSettings_s2lrp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JogarNovamente" type="Sprite2D" parent="game_over_ui"]
+position = Vector2(461, 537)
+texture = ExtResource("14_4txr5")
+
+[node name="MenuPrincipal" type="Sprite2D" parent="game_over_ui"]
+position = Vector2(925, 534)
+texture = ExtResource("15_1y8g8")
 
 [node name="play_again" type="Button" parent="game_over_ui"]
 self_modulate = Color(1, 1, 1, 0)
@@ -155,10 +186,6 @@ offset_right = 658.0
 offset_bottom = 608.0
 text = "Jogar Novamente"
 
-[node name="JogarNovamente" type="Sprite2D" parent="game_over_ui/play_again"]
-position = Vector2(193, 76)
-texture = ExtResource("14_4txr5")
-
 [node name="main_menu" type="Button" parent="game_over_ui"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -167,27 +194,6 @@ offset_top = 454.0
 offset_right = 1120.0
 offset_bottom = 608.0
 text = "Menu Principal"
-
-[node name="MenuPrincipal" type="Sprite2D" parent="game_over_ui/main_menu"]
-position = Vector2(200, 80)
-texture = ExtResource("15_1y8g8")
-
-[node name="IconsContainer" type="Node2D" parent="."]
-script = ExtResource("14_u7mvg")
-icon_scenes = Array[PackedScene]([ExtResource("15_665my"), ExtResource("16_jgue8"), ExtResource("17_bjif3"), ExtResource("18_tc81j"), ExtResource("19_8bqg7")])
-
-[node name="Icon1" parent="." instance=ExtResource("15_665my")]
-visible = false
-position = Vector2(21, 14)
-
-[node name="Icon2" parent="." instance=ExtResource("15_665my")]
-visible = false
-position = Vector2(21, 39)
-
-[node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("22_mx030")
-volume_db = 15.0
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]
 [connection signal="button_down" from="game_over_ui/play_again" to="." method="_on_play_again_button_down"]

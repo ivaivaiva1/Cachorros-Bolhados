@@ -1,6 +1,7 @@
 extends Node2D
 
 func _on_easy_button_button_down() -> void:
+	GameManager.game_mode = "Fácil"
 	GameManager.spawn_cooldown = 0.7
 	GameManager.fly_speed = 100
 	GameManager.tween_duration = 2.5
@@ -9,6 +10,7 @@ func _on_easy_button_button_down() -> void:
 
 
 func _on_medium_button_button_down() -> void:
+	GameManager.game_mode = "Médio"
 	GameManager.spawn_cooldown = 0.4
 	GameManager.fly_speed = 100
 	GameManager.tween_duration = 2.5
@@ -17,6 +19,7 @@ func _on_medium_button_button_down() -> void:
 
 
 func _on_hard_button_button_down() -> void:
+	GameManager.game_mode = "Difícil"
 	GameManager.spawn_cooldown = 0.3
 	GameManager.fly_speed = 120
 	GameManager.tween_duration = 2.5
@@ -25,6 +28,7 @@ func _on_hard_button_button_down() -> void:
 
 
 func _on_extreme_button_down() -> void:
+	GameManager.game_mode = "Extremo"
 	GameManager.spawn_cooldown = 0.3
 	GameManager.fly_speed = 120
 	GameManager.tween_duration = 1

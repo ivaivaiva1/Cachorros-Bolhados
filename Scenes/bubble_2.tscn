@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp7guljax7l4"]
+[gd_scene load_steps=3 format=3 uid="uid://bfayktvg6kr3f"]
 
-[ext_resource type="Texture2D" uid="uid://cfiedfwn42eim" path="res://Assets/Bubbles/Coloured/16x16/bubble_6.png" id="1_wxcnn"]
+[ext_resource type="Texture2D" uid="uid://b7l8orjteu1vt" path="res://Assets/Bubbles/Coloured/16x16/bubble_3.png" id="1_gb2lk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_121i4"]
 corner_radius_top_left = 15
@@ -9,20 +9,21 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 corner_detail = 20
 
-[node name="Bolha1" type="Node2D"]
-scale = Vector2(6.5, 6.5)
+[node name="Bolha2" type="Node2D"]
+scale = Vector2(3.2, 3.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 use_parent_material = true
-texture = ExtResource("1_wxcnn")
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("1_gb2lk")
 
 [node name="Button" type="Button" parent="."]
-self_modulate = Color(1, 0.06, 0.06, 0)
-offset_left = -7.85
-offset_top = -8.483
-offset_right = 9.15
-offset_bottom = 8.517
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_121i4")
 

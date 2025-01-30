@@ -10,6 +10,6 @@ func _ready() -> void:
 		#if is_visible:
 			#is_visible = false
 			#self.visible = false
-		#else:
+		#else:  
 			#is_visible = true
 			#self.visible = true

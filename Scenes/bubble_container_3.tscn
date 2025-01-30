@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cx78vjayxu723" path="res://Audio/som_de_bolha_4.mp3" id="9_digrh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6kfq"]
-radius = 54.0
+radius = 27.9361
 
 [sub_resource type="Animation" id="Animation_ut7wk"]
 length = 0.001
@@ -89,9 +89,10 @@ catioro_scene = ExtResource("5_6vjvu")
 
 [node name="bolha" parent="." instance=ExtResource("2_vsuek")]
 unique_name_in_owner = true
-scale = Vector2(3.3, 3.3)
+scale = Vector2(6.3, 6.3)
 
 [node name="Area2D" type="Area2D" parent="bolha" groups=["bubble"]]
+visible = false
 scale = Vector2(0.30303, 0.30303)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bolha/Area2D"]

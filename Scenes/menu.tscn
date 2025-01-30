@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo6ny83ggfd08"]
+[gd_scene load_steps=17 format=3 uid="uid://bo6ny83ggfd08"]
 
 [ext_resource type="Script" path="res://Scripts/background.gd" id="1_7i2dn"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_l3uyl"]
@@ -12,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://d3x6ibwskdsir" path="res://HUD/Dificil.png" id="9_bblcv"]
 [ext_resource type="VideoStream" path="res://Videos/intro.ogv" id="11_wmkdf"]
 [ext_resource type="Texture2D" uid="uid://ck1kx8m17yy2k" path="res://HUD 2/Exit.png" id="12_1oipa"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_njt47"]
+action = &"click_button"
+
+[sub_resource type="Shortcut" id="Shortcut_u1hdd"]
+events = [SubResource("InputEventAction_njt47")]
 
 [sub_resource type="Gradient" id="Gradient_4ydco"]
 offsets = PackedFloat32Array(0.130435, 0.278261, 0.408696, 0.556522)
@@ -61,6 +67,7 @@ offset_left = 547.0
 offset_top = 79.0
 offset_right = 817.0
 offset_bottom = 203.0
+shortcut = SubResource("Shortcut_u1hdd")
 
 [node name="MediumButton" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)

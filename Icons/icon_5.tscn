@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ddo4o7l12307f" path="res://Assets/Artes/Cachorro5.png" id="1_uyir1"]
 
 [node name="Icon5" type="Sprite2D"]
+z_index = -90
 position = Vector2(122, 15)
 scale = Vector2(0.11, 0.11)
 texture = ExtResource("1_uyir1")

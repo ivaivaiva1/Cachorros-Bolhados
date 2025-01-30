@@ -3,6 +3,7 @@ extends Node2D
 @onready var game_over_ui: Control = %game_over_ui
 @onready var score_label: Label = %actual_score
 @onready var recorde_label: Label = %recorde_score
+@onready var game_mode_label: Label = %game_mode
 @onready var bump_player: AudioStreamPlayer2D = %BumpAudio
 
 func _ready() -> void:
@@ -22,6 +23,7 @@ func _on_game_over_area_area_entered(area: Area2D) -> void:
 		game_over_ui.visible = true
 		score_label.text = str(GameManager.actual_score)
 		#recorde_label.text = str(SaveScore.load_score())
+		game_mode_label.text = GameManager.game_mode
 		GameManager.game_state = "GameOver"
 
 

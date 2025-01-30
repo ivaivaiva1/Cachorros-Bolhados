@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cp7kw3gu7omw3" path="res://Scenes/cachorro_5.tscn" id="10_v8seq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6kfq"]
-radius = 54.0
+radius = 29.0228
 
 [sub_resource type="Animation" id="Animation_ut7wk"]
 length = 0.001
@@ -90,7 +90,7 @@ catioro_scene = ExtResource("10_v8seq")
 [node name="bolha" parent="." instance=ExtResource("3_rlkeq")]
 unique_name_in_owner = true
 position = Vector2(5.96046e-08, -4)
-scale = Vector2(2.7, 2.7)
+scale = Vector2(6.3, 6.3)
 
 [node name="Area2D" type="Area2D" parent="bolha" groups=["bubble"]]
 visible = false

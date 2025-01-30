@@ -7,7 +7,7 @@
 radius = 7.27904
 
 [node name="cachorro3" type="CharacterBody2D"]
-scale = Vector2(3.3, 3.3)
+scale = Vector2(2.5, 2.5)
 script = ExtResource("1_5ffa0")
 dog_id = 2
 
@@ -19,6 +19,7 @@ vframes = 3
 frame = 4
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.30303, 0)

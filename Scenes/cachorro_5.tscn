@@ -7,7 +7,7 @@
 radius = 105.105
 
 [node name="cachorro1" type="CharacterBody2D"]
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.12, 0.12)
 script = ExtResource("1_21007")
 dog_id = 4
 
@@ -16,6 +16,7 @@ position = Vector2(1.42109e-14, 40)
 texture = ExtResource("2_2xnix")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-5, -20)
