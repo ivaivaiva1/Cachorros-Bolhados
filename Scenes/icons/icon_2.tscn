@@ -4,7 +4,6 @@
 
 [node name="Icon2" type="Sprite2D"]
 z_index = -90
-position = Vector2(56, 15)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("1_mtefy")
 hframes = 3

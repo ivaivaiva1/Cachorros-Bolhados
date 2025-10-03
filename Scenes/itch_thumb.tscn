@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cgduerxds5vtn" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/3.png" id="3_auww0"]
 [ext_resource type="Texture2D" uid="uid://dkq55s16pnm1g" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/4.png" id="4_sqhb6"]
 [ext_resource type="Texture2D" uid="uid://b1suerugb57vq" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/5.png" id="5_7xmk5"]
-[ext_resource type="PackedScene" uid="uid://cili3i8us0yag" path="res://Scenes/bubble_container_1.tscn" id="6_s5cvt"]
-[ext_resource type="PackedScene" uid="uid://bde3m20qvg3da" path="res://Scenes/bubble_container_2.tscn" id="7_2wnf0"]
-[ext_resource type="PackedScene" uid="uid://dav1mcbrfs215" path="res://Scenes/bubble_container_3.tscn" id="8_cgbfq"]
-[ext_resource type="PackedScene" uid="uid://c1xwfq28ni4lm" path="res://Scenes/bubble_container_4.tscn" id="9_kxw44"]
-[ext_resource type="PackedScene" uid="uid://dbgilka2w06bx" path="res://Scenes/bubble_container_5.tscn" id="10_2wpih"]
+[ext_resource type="PackedScene" uid="uid://cili3i8us0yag" path="res://Scenes/bubbles/bubble_container_1.tscn" id="6_s5cvt"]
+[ext_resource type="PackedScene" uid="uid://bde3m20qvg3da" path="res://Scenes/bubbles/bubble_container_2.tscn" id="7_2wnf0"]
+[ext_resource type="PackedScene" uid="uid://dav1mcbrfs215" path="res://Scenes/bubbles/bubble_container_3.tscn" id="8_cgbfq"]
+[ext_resource type="PackedScene" uid="uid://c1xwfq28ni4lm" path="res://Scenes/bubbles/bubble_container_4.tscn" id="9_kxw44"]
+[ext_resource type="PackedScene" uid="uid://dbgilka2w06bx" path="res://Scenes/bubbles/bubble_container_5.tscn" id="10_2wpih"]
+
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_cnvee")

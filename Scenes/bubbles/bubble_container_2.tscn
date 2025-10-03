@@ -1,17 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://cili3i8us0yag"]
+[gd_scene load_steps=15 format=3 uid="uid://bde3m20qvg3da"]
 
-[ext_resource type="Script" path="res://Scripts/bubble_moviment.gd" id="1_g3s32"]
-[ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubble_1.tscn" id="1_wxjet"]
-[ext_resource type="Script" path="res://Scripts/bubble_container.gd" id="1_yrsw8"]
-[ext_resource type="PackedScene" uid="uid://cbjkejexexgc" path="res://Scenes/cachorro_1.tscn" id="2_vq6bb"]
-[ext_resource type="Script" path="res://Scripts/bubble_rotation.gd" id="4_is866"]
-[ext_resource type="AudioStream" uid="uid://djcf40yehn2lj" path="res://Audio/som_de_bolha_1.mp3" id="6_pawm8"]
-[ext_resource type="AudioStream" uid="uid://cydn8vngltban" path="res://Audio/som_de_bolha_2.mp3" id="7_cpoxx"]
-[ext_resource type="AudioStream" uid="uid://cjyrq2ykoyis3" path="res://Audio/som_de_bolha_3.mp3" id="8_pqbb5"]
-[ext_resource type="AudioStream" uid="uid://cx78vjayxu723" path="res://Audio/som_de_bolha_4.mp3" id="9_h2ujy"]
+[ext_resource type="Script" path="res://Scripts/bubble_container.gd" id="1_dwtxt"]
+[ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubbles/bubble_1.tscn" id="2_xihi7"]
+[ext_resource type="Script" path="res://Scripts/bubble_moviment.gd" id="4_cdlxg"]
+[ext_resource type="PackedScene" uid="uid://bijks5lgm05lq" path="res://Scenes/dogs/cachorro_2.tscn" id="5_26cto"]
+[ext_resource type="Script" path="res://Scripts/bubble_rotation.gd" id="5_monmj"]
+[ext_resource type="AudioStream" uid="uid://djcf40yehn2lj" path="res://Audio/som_de_bolha_1.mp3" id="6_1hdmg"]
+[ext_resource type="AudioStream" uid="uid://cydn8vngltban" path="res://Audio/som_de_bolha_2.mp3" id="7_r3mhj"]
+[ext_resource type="AudioStream" uid="uid://cjyrq2ykoyis3" path="res://Audio/som_de_bolha_3.mp3" id="8_k87ge"]
+[ext_resource type="AudioStream" uid="uid://cx78vjayxu723" path="res://Audio/som_de_bolha_4.mp3" id="9_vs53j"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ad63q"]
-radius = 26.807
+[sub_resource type="CircleShape2D" id="CircleShape2D_geipt"]
+radius = 41.1554
 
 [sub_resource type="Animation" id="Animation_ut7wk"]
 length = 0.001
@@ -76,34 +76,33 @@ _data = {
 "bubble_anim": SubResource("Animation_ntt4h")
 }
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ojbyx"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pn5hy"]
 streams_count = 4
-stream_0/stream = ExtResource("6_pawm8")
-stream_1/stream = ExtResource("7_cpoxx")
-stream_2/stream = ExtResource("8_pqbb5")
-stream_3/stream = ExtResource("9_h2ujy")
+stream_0/stream = ExtResource("6_1hdmg")
+stream_1/stream = ExtResource("7_r3mhj")
+stream_2/stream = ExtResource("8_k87ge")
+stream_3/stream = ExtResource("9_vs53j")
 
-[node name="bubble_container_1" type="CharacterBody2D"]
-script = ExtResource("1_yrsw8")
-catioro_scene = ExtResource("2_vq6bb")
+[node name="bubble_container_2" type="CharacterBody2D"]
+script = ExtResource("1_dwtxt")
+catioro_scene = ExtResource("5_26cto")
 
-[node name="bolha" parent="." instance=ExtResource("1_wxjet")]
+[node name="bolha" parent="." instance=ExtResource("2_xihi7")]
 unique_name_in_owner = true
 scale = Vector2(6.3, 6.3)
 
 [node name="Area2D" type="Area2D" parent="bolha" groups=["bubble"]]
-visible = false
-scale = Vector2(0.3125, 0.3125)
+scale = Vector2(0.344828, 0.344828)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bolha/Area2D"]
-shape = SubResource("CircleShape2D_ad63q")
+shape = SubResource("CircleShape2D_geipt")
 
 [node name="bubble_moviment" type="Node2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("1_g3s32")
+script = ExtResource("4_cdlxg")
 
 [node name="bubble_rotation" type="Node2D" parent="."]
-script = ExtResource("4_is866")
+script = ExtResource("5_monmj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -113,12 +112,12 @@ libraries = {
 autoplay = "bubble_anim"
 speed_scale = 0.3
 
-[node name="cachorro" parent="." instance=ExtResource("2_vq6bb")]
+[node name="cachorro" parent="." instance=ExtResource("5_26cto")]
 unique_name_in_owner = true
 
 [node name="BubbleAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = SubResource("AudioStreamRandomizer_ojbyx")
+stream = SubResource("AudioStreamRandomizer_pn5hy")
 volume_db = 7.0
 
 [connection signal="button_down" from="bolha/Button" to="." method="_on_button_button_down"]

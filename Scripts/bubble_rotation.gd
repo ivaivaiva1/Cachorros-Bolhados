@@ -7,4 +7,4 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	if bubble.is_alive == false: return
-	bubble.rotation_degrees += rotation_speed * rotation_direction 
+	bubble.rotation_degrees += rotation_speed * rotation_direction * delta

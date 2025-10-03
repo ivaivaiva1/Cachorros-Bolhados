@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://0a4d5jgpxoir"]
 
-[ext_resource type="PackedScene" uid="uid://b0hwdr1gjhyvr" path="res://Icons/icon_1.tscn" id="1_hp4uc"]
-[ext_resource type="PackedScene" uid="uid://rtcmdufu80u6" path="res://Icons/icon_2.tscn" id="2_paayd"]
-[ext_resource type="PackedScene" uid="uid://bnx62jvox7x" path="res://Icons/icon_3.tscn" id="3_jcbv0"]
-[ext_resource type="PackedScene" uid="uid://cmld782ijgd4y" path="res://Icons/icon_4.tscn" id="4_gln2c"]
-[ext_resource type="PackedScene" uid="uid://dpyy4hyl0syt1" path="res://Icons/icon_5.tscn" id="5_83sy8"]
+[ext_resource type="PackedScene" uid="uid://b0hwdr1gjhyvr" path="res://Scenes/icons/icon_1.tscn" id="1_hp4uc"]
+[ext_resource type="PackedScene" uid="uid://rtcmdufu80u6" path="res://Scenes/icons/icon_2.tscn" id="2_paayd"]
+[ext_resource type="PackedScene" uid="uid://bnx62jvox7x" path="res://Scenes/icons/icon_3.tscn" id="3_jcbv0"]
+[ext_resource type="PackedScene" uid="uid://cmld782ijgd4y" path="res://Scenes/icons/icon_4.tscn" id="4_gln2c"]
+[ext_resource type="PackedScene" uid="uid://dpyy4hyl0syt1" path="res://Scenes/icons/icon_5.tscn" id="5_83sy8"]
+
 
 [node name="Node2D" type="Node2D"]
 

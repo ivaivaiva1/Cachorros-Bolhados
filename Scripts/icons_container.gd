@@ -2,6 +2,7 @@ extends Node2D
 class_name Icons_Container
 
 @export var icon_scenes: Array[PackedScene]
+@export var icon_gold: PackedScene
 
 var icon_position: Vector2 = Vector2(21, 14)
 

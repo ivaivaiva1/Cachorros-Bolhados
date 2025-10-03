@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfiedfwn42eim" path="res://Assets/Bubbles/Coloured/16x16/bubble_6.png" id="1_wxcnn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_121i4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybtee"]
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -18,12 +18,10 @@ use_parent_material = true
 texture = ExtResource("1_wxcnn")
 
 [node name="Button" type="Button" parent="."]
-self_modulate = Color(1, 0.06, 0.06, 0)
-offset_left = -7.85
-offset_top = -8.483
-offset_right = 9.15
-offset_bottom = 8.517
+self_modulate = Color(1, 0.0588235, 0.0588235, 0)
+offset_left = -18.9231
+offset_top = -18.9231
+offset_right = 19.0769
+offset_bottom = 19.0769
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_121i4")
-
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+theme_override_styles/normal = SubResource("StyleBoxFlat_ybtee")

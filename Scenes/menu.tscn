@@ -19,12 +19,12 @@ action = &"click_button"
 [sub_resource type="Shortcut" id="Shortcut_u1hdd"]
 events = [SubResource("InputEventAction_njt47")]
 
-[sub_resource type="Gradient" id="Gradient_4ydco"]
+[sub_resource type="Gradient" id="Gradient_1jyhc"]
 offsets = PackedFloat32Array(0.130435, 0.278261, 0.408696, 0.556522)
 colors = PackedColorArray(1, 1, 1, 1, 0.5274, 0.359042, 0.12334, 1, 0.689677, 0.469516, 0.16129, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vb3ui"]
-gradient = SubResource("Gradient_4ydco")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hv6q3"]
+gradient = SubResource("Gradient_1jyhc")
 width = 300
 height = 300
 fill = 1
@@ -110,12 +110,6 @@ position = Vector2(683, 442.3)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("9_bblcv")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(969, 274)
-color = Color(0.76, 0.39064, 0.1444, 1)
-energy = 0.3
-texture = SubResource("GradientTexture2D_vb3ui")
-
 [node name="Exit" type="Sprite2D" parent="."]
 position = Vector2(174, 670)
 scale = Vector2(0.613924, 0.613924)
@@ -127,6 +121,13 @@ offset_left = 58.0
 offset_top = 627.0
 offset_right = 288.0
 offset_bottom = 713.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(971, 270)
+scale = Vector2(1.4, 1.4)
+color = Color(0.760784, 0.392157, 0.145098, 0.392157)
+energy = 0.3
+texture = SubResource("GradientTexture2D_hv6q3")
 
 [connection signal="button_down" from="EasyButton" to="." method="_on_easy_button_button_down"]
 [connection signal="button_down" from="MediumButton" to="." method="_on_medium_button_button_down"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://dbgilka2w06bx"]
 
 [ext_resource type="Script" path="res://Scripts/bubble_container.gd" id="1_r58k5"]
-[ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubble_1.tscn" id="3_rlkeq"]
+[ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubbles/bubble_1.tscn" id="3_rlkeq"]
 [ext_resource type="Script" path="res://Scripts/bubble_moviment.gd" id="4_nj47m"]
 [ext_resource type="Script" path="res://Scripts/bubble_rotation.gd" id="5_jv3ae"]
 [ext_resource type="AudioStream" uid="uid://djcf40yehn2lj" path="res://Audio/som_de_bolha_1.mp3" id="6_wtepf"]
 [ext_resource type="AudioStream" uid="uid://cydn8vngltban" path="res://Audio/som_de_bolha_2.mp3" id="7_m0a0t"]
 [ext_resource type="AudioStream" uid="uid://cjyrq2ykoyis3" path="res://Audio/som_de_bolha_3.mp3" id="8_641mv"]
 [ext_resource type="AudioStream" uid="uid://cx78vjayxu723" path="res://Audio/som_de_bolha_4.mp3" id="9_wrg4n"]
-[ext_resource type="PackedScene" uid="uid://cp7kw3gu7omw3" path="res://Scenes/cachorro_5.tscn" id="10_v8seq"]
+[ext_resource type="PackedScene" uid="uid://cp7kw3gu7omw3" path="res://Scenes/dogs/cachorro_5.tscn" id="10_v8seq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6kfq"]
 radius = 29.0228
@@ -93,7 +93,6 @@ position = Vector2(5.96046e-08, -4)
 scale = Vector2(6.3, 6.3)
 
 [node name="Area2D" type="Area2D" parent="bolha" groups=["bubble"]]
-visible = false
 scale = Vector2(0.30303, 0.30303)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bolha/Area2D"]
