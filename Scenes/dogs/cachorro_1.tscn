@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbjkejexexgc"]
 
-[ext_resource type="Script" path="res://Scripts/cachorros.gd" id="1_1ceh5"]
+[ext_resource type="Script" uid="uid://bruh1o1ojlpky" path="res://Scripts/cachorros.gd" id="1_1ceh5"]
 [ext_resource type="Texture2D" uid="uid://5ittn553c65n" path="res://Assets/Artes/cachorro centralizado.png" id="2_h7gt7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gs7ud"]

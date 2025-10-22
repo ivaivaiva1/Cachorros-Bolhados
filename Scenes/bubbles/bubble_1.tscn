@@ -18,10 +18,10 @@ use_parent_material = true
 texture = ExtResource("1_wxcnn")
 
 [node name="Button" type="Button" parent="."]
-self_modulate = Color(1, 0.0588235, 0.0588235, 0)
-offset_left = -18.9231
-offset_top = -18.9231
-offset_right = 19.0769
-offset_bottom = 19.0769
+self_modulate = Color(1, 0.060000002, 0.060000002, 0)
+offset_left = -12.461538
+offset_top = -11.538462
+offset_right = 11.538485
+offset_bottom = 12.461561
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ybtee")

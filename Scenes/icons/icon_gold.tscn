@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://do4wr34k80yr1"]
+
+[ext_resource type="Texture2D" uid="uid://5ittn553c65n" path="res://Assets/Artes/cachorro centralizado.png" id="1_hb00i"]
+
+[node name="Icon_gold" type="Sprite2D"]
+modulate = Color(1, 0, 0.9333334, 1)
+z_index = -90
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_hb00i")
+hframes = 3
+vframes = 3

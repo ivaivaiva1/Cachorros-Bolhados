@@ -21,7 +21,7 @@ func _on_medium_button_button_down() -> void:
 func _on_hard_button_button_down() -> void:
 	GameManager.game_mode = "Difícil"
 	GameManager.spawn_cooldown = 0.3
-	GameManager.fly_speed = 120
+	GameManager.fly_speed = 300
 	GameManager.tween_duration = 2.5
 	GameManager.tween_distance = 80
 	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
@@ -29,9 +29,9 @@ func _on_hard_button_button_down() -> void:
 
 func _on_extreme_button_down() -> void:
 	GameManager.game_mode = "Extremo"
-	GameManager.spawn_cooldown = 0.3
+	GameManager.spawn_cooldown = 0.1
 	GameManager.fly_speed = 120
-	GameManager.tween_duration = 1
+	GameManager.tween_duration = 0.5
 	GameManager.tween_distance = 120
 	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
 

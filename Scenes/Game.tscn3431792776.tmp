@@ -73,7 +73,6 @@ position = Vector2(661, 387)
 texture = ExtResource("5_0vdv6")
 
 [node name="BubbleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_points")]
-unique_name_in_owner = true
 script = ExtResource("6_xta46")
 bubble_objects = Array[PackedScene]([ExtResource("7_k5rfa"), ExtResource("8_waut6"), ExtResource("9_r7o7e"), ExtResource("11_e71cw"), ExtResource("12_itsox")])
 spawn_points = [NodePath("Marker2D2"), NodePath("Marker2D4"), NodePath("Marker2D6"), NodePath("Marker2D8"), NodePath("Marker2D10"), NodePath("Marker2D12"), NodePath("Marker2D14"), NodePath("Marker2D16"), NodePath("Marker2D18")]
@@ -212,13 +211,6 @@ texture = SubResource("GradientTexture2D_1cmpp")
 [node name="adaptive difficulty label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Adaptive Difficulty = 10"
-label_settings = SubResource("LabelSettings_raj38")
-
-[node name="cooldown spawn label" type="Label" parent="."]
-offset_top = 42.0
-offset_right = 400.0
-offset_bottom = 92.0
 text = "Adaptive Difficulty = 10"
 label_settings = SubResource("LabelSettings_raj38")
 

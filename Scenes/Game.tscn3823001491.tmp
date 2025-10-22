@@ -73,10 +73,12 @@ position = Vector2(661, 387)
 texture = ExtResource("5_0vdv6")
 
 [node name="BubbleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_points")]
-unique_name_in_owner = true
 script = ExtResource("6_xta46")
 bubble_objects = Array[PackedScene]([ExtResource("7_k5rfa"), ExtResource("8_waut6"), ExtResource("9_r7o7e"), ExtResource("11_e71cw"), ExtResource("12_itsox")])
 spawn_points = [NodePath("Marker2D2"), NodePath("Marker2D4"), NodePath("Marker2D6"), NodePath("Marker2D8"), NodePath("Marker2D10"), NodePath("Marker2D12"), NodePath("Marker2D14"), NodePath("Marker2D16"), NodePath("Marker2D18")]
+max_bubbles = null
+base_spawn_cooldown = null
+difficulty_speed_factor = null
 
 [node name="Marker2D2" type="Marker2D" parent="BubbleSpawner"]
 position = Vector2(44, 819)
