@@ -4,4 +4,3 @@
 
 [node name="Main Music" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_uxvrv")
-autoplay = true

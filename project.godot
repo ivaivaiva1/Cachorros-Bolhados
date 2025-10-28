@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/GameManager.gd"
 SaveScore="*res://Scripts/save_score.gd"
 MainMusic="*res://Scenes/main_music.tscn"
+DogsList="*res://Scenes/dogs_list.tscn"
 
 [display]
 

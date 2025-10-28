@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://bde3m20qvg3da"]
 
-[ext_resource type="Script" path="res://Scripts/bubble_container.gd" id="1_dwtxt"]
+[ext_resource type="Script" uid="uid://c8ou7y2h6ymm1" path="res://Scripts/bubble_container.gd" id="1_dwtxt"]
 [ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubbles/bubble_1.tscn" id="2_xihi7"]
-[ext_resource type="Script" path="res://Scripts/bubble_moviment.gd" id="4_cdlxg"]
+[ext_resource type="Script" uid="uid://bdshlfutd7xrd" path="res://Scripts/bubble_moviment.gd" id="4_cdlxg"]
 [ext_resource type="PackedScene" uid="uid://bijks5lgm05lq" path="res://Scenes/dogs/cachorro_2.tscn" id="5_26cto"]
-[ext_resource type="Script" path="res://Scripts/bubble_rotation.gd" id="5_monmj"]
+[ext_resource type="Script" uid="uid://07cbmo44hkp5" path="res://Scripts/bubble_rotation.gd" id="5_monmj"]
 [ext_resource type="AudioStream" uid="uid://djcf40yehn2lj" path="res://Audio/som_de_bolha_1.mp3" id="6_1hdmg"]
 [ext_resource type="AudioStream" uid="uid://cydn8vngltban" path="res://Audio/som_de_bolha_2.mp3" id="7_r3mhj"]
 [ext_resource type="AudioStream" uid="uid://cjyrq2ykoyis3" path="res://Audio/som_de_bolha_3.mp3" id="8_k87ge"]
@@ -72,8 +72,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v16ft"]
 _data = {
-"RESET": SubResource("Animation_ut7wk"),
-"bubble_anim": SubResource("Animation_ntt4h")
+&"RESET": SubResource("Animation_ut7wk"),
+&"bubble_anim": SubResource("Animation_ntt4h")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pn5hy"]
@@ -107,7 +107,7 @@ script = ExtResource("5_monmj")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_v16ft")
+&"": SubResource("AnimationLibrary_v16ft")
 }
 autoplay = "bubble_anim"
 speed_scale = 0.3

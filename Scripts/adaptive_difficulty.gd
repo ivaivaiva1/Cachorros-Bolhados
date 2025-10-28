@@ -19,6 +19,7 @@ var loss_cooldown_timer: float = 0.0   # Contagem desde a última redução real
 func _process(delta: float) -> void:
 	if GameManager.game_state != "Play":
 		return
+
 	update_fly_speed()
 	
 	# Atualiza tempos
@@ -35,9 +36,11 @@ func _process(delta: float) -> void:
 	GameManager.adaptive_difficulty += growth_rate * delta
 	GameManager.adaptive_difficulty = clamp(GameManager.adaptive_difficulty, 0.0, max_difficulty)
 
-	# Atualiza texto da label (se existir)
+	# Atualiza texto da label (se existir) mostrando também o current_bonus
 	if label:
-		label.text = "Adaptive Difficulty = %.2f" % GameManager.adaptive_difficulty
+		label.text = "Adaptive Difficulty = %.2f | Current Bonus Growth = %.6f" % [
+			GameManager.adaptive_difficulty, current_bonus
+		]
 
 
 func on_dog_escaped() -> void:

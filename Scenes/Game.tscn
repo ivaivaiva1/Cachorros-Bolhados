@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d2cj22y8bkni4"]
+[gd_scene load_steps=29 format=3 uid="uid://d2cj22y8bkni4"]
 
 [ext_resource type="Script" uid="uid://dnjf0fgnvuhy1" path="res://Scripts/background.gd" id="1_ewpxn"]
 [ext_resource type="Script" uid="uid://ddrasymxcaq5j" path="res://Scripts/game.gd" id="1_o3eg0"]
@@ -8,10 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b1suerugb57vq" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/5.png" id="5_0vdv6"]
 [ext_resource type="Script" uid="uid://cvmy646hiblp1" path="res://Scripts/bubble_spawner.gd" id="6_xta46"]
 [ext_resource type="PackedScene" uid="uid://cili3i8us0yag" path="res://Scenes/bubbles/bubble_container_1.tscn" id="7_k5rfa"]
-[ext_resource type="PackedScene" uid="uid://bde3m20qvg3da" path="res://Scenes/bubbles/bubble_container_2.tscn" id="8_waut6"]
-[ext_resource type="PackedScene" uid="uid://dav1mcbrfs215" path="res://Scenes/bubbles/bubble_container_3.tscn" id="9_r7o7e"]
-[ext_resource type="PackedScene" uid="uid://c1xwfq28ni4lm" path="res://Scenes/bubbles/bubble_container_4.tscn" id="11_e71cw"]
-[ext_resource type="PackedScene" uid="uid://dbgilka2w06bx" path="res://Scenes/bubbles/bubble_container_5.tscn" id="12_itsox"]
 [ext_resource type="Texture2D" uid="uid://6j52u1i0ussi" path="res://HUD 2/BoxDogs.png" id="13_lx0ty"]
 [ext_resource type="Texture2D" uid="uid://p2ycm3baflxn" path="res://HUD 2/JogarNovamente.png" id="14_4txr5"]
 [ext_resource type="Script" uid="uid://d3j0rsmox5yrs" path="res://Scripts/icons_container.gd" id="14_u7mvg"]
@@ -23,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://cmld782ijgd4y" path="res://Scenes/icons/icon_4.tscn" id="18_tc81j"]
 [ext_resource type="PackedScene" uid="uid://dpyy4hyl0syt1" path="res://Scenes/icons/icon_5.tscn" id="19_8bqg7"]
 [ext_resource type="Script" uid="uid://i48va3nvsjfq" path="res://Scripts/adaptive_difficulty.gd" id="20_raj38"]
+[ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="21_rajel"]
 [ext_resource type="AudioStream" uid="uid://cgjwvhfgxq3ma" path="res://Audio/tremendo_0.6s.mp3" id="22_mx030"]
+[ext_resource type="PackedScene" uid="uid://bgwmxpcndenmw" path="res://Scenes/mechanics/basket.tscn" id="22_vvhu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3cqs"]
 size = Vector2(3718, 176)
@@ -47,6 +45,9 @@ font_size = 36
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rajel"]
+size = Vector2(128.32904, 129.09448)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o3eg0")
 
@@ -57,25 +58,29 @@ scale = Vector2(2.4, 2.4)
 script = ExtResource("1_ewpxn")
 
 [node name="1" type="Sprite2D" parent="Backgrounds"]
+z_index = -1000
 position = Vector2(660, 386)
 texture = ExtResource("2_f6fkt")
 
 [node name="3" type="Sprite2D" parent="Backgrounds"]
+z_index = -1000
 position = Vector2(638, 339)
 texture = ExtResource("3_8ih6i")
 
 [node name="4" type="Sprite2D" parent="Backgrounds"]
+z_index = -1000
 position = Vector2(662, 387)
 texture = ExtResource("4_dwjn7")
 
 [node name="5" type="Sprite2D" parent="Backgrounds"]
+z_index = -1000
 position = Vector2(661, 387)
 texture = ExtResource("5_0vdv6")
 
 [node name="BubbleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_points")]
 unique_name_in_owner = true
 script = ExtResource("6_xta46")
-bubble_objects = Array[PackedScene]([ExtResource("7_k5rfa"), ExtResource("8_waut6"), ExtResource("9_r7o7e"), ExtResource("11_e71cw"), ExtResource("12_itsox")])
+bubble_objects = Array[PackedScene]([ExtResource("7_k5rfa")])
 spawn_points = [NodePath("Marker2D2"), NodePath("Marker2D4"), NodePath("Marker2D6"), NodePath("Marker2D8"), NodePath("Marker2D10"), NodePath("Marker2D12"), NodePath("Marker2D14"), NodePath("Marker2D16"), NodePath("Marker2D18")]
 
 [node name="Marker2D2" type="Marker2D" parent="BubbleSpawner"]
@@ -210,17 +215,68 @@ energy = 0.3
 texture = SubResource("GradientTexture2D_1cmpp")
 
 [node name="adaptive difficulty label" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Adaptive Difficulty = 10"
 label_settings = SubResource("LabelSettings_raj38")
 
 [node name="cooldown spawn label" type="Label" parent="."]
+visible = false
 offset_top = 42.0
 offset_right = 400.0
 offset_bottom = 92.0
 text = "Adaptive Difficulty = 10"
 label_settings = SubResource("LabelSettings_raj38")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(334.00003, 458)
+rotation = 0.71191084
+scale = Vector2(3.2109375, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("21_rajel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.15020752, -0.15777588)
+shape = SubResource("RectangleShape2D_rajel")
+disabled = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(933.00006, 468.00003)
+rotation = -0.77529854
+scale = Vector2(3.2109375, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("21_rajel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-0.15020752, -0.15777588)
+shape = SubResource("RectangleShape2D_rajel")
+disabled = true
+
+[node name="Basket" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(417, 298)
+
+[node name="Basket2" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(761, 174)
+
+[node name="Basket3" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(1230, 620)
+
+[node name="Basket4" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(969, 622)
+
+[node name="Basket5" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(692, 620)
+
+[node name="Basket6" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(417, 617)
+
+[node name="Basket7" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(167, 612)
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]
 [connection signal="button_down" from="game_over_ui/play_again" to="." method="_on_play_again_button_down"]

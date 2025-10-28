@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://cili3i8us0yag"]
 
-[ext_resource type="Script" path="res://Scripts/bubble_moviment.gd" id="1_g3s32"]
+[ext_resource type="Script" uid="uid://bdshlfutd7xrd" path="res://Scripts/bubble_moviment.gd" id="1_g3s32"]
 [ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubbles/bubble_1.tscn" id="1_wxjet"]
-[ext_resource type="Script" path="res://Scripts/bubble_container.gd" id="1_yrsw8"]
-[ext_resource type="PackedScene" uid="uid://cbjkejexexgc" path="res://Scenes/dogs/cachorro_1.tscn" id="2_vq6bb"]
-[ext_resource type="Script" path="res://Scripts/bubble_rotation.gd" id="4_is866"]
+[ext_resource type="Script" uid="uid://c8ou7y2h6ymm1" path="res://Scripts/bubble_container.gd" id="1_yrsw8"]
+[ext_resource type="PackedScene" uid="uid://cbjkejexexgc" path="res://Scenes/dogs/cachorro_0.tscn" id="2_vq6bb"]
+[ext_resource type="Script" uid="uid://07cbmo44hkp5" path="res://Scripts/bubble_rotation.gd" id="4_is866"]
 [ext_resource type="AudioStream" uid="uid://djcf40yehn2lj" path="res://Audio/som_de_bolha_1.mp3" id="6_pawm8"]
 [ext_resource type="AudioStream" uid="uid://cydn8vngltban" path="res://Audio/som_de_bolha_2.mp3" id="7_cpoxx"]
 [ext_resource type="AudioStream" uid="uid://cjyrq2ykoyis3" path="res://Audio/som_de_bolha_3.mp3" id="8_pqbb5"]
@@ -72,8 +72,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v16ft"]
 _data = {
-"RESET": SubResource("Animation_ut7wk"),
-"bubble_anim": SubResource("Animation_ntt4h")
+&"RESET": SubResource("Animation_ut7wk"),
+&"bubble_anim": SubResource("Animation_ntt4h")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ojbyx"]
@@ -114,13 +114,16 @@ script = ExtResource("4_is866")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_v16ft")
+&"": SubResource("AnimationLibrary_v16ft")
 }
 autoplay = "bubble_anim"
 speed_scale = 0.3
 
 [node name="cachorro" parent="." instance=ExtResource("2_vq6bb")]
 unique_name_in_owner = true
+
+[node name="CollisionShape2D" parent="cachorro" index="1"]
+disabled = true
 
 [node name="BubbleAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -130,3 +133,4 @@ volume_db = 7.0
 [connection signal="button_down" from="bolha/Button" to="." method="_on_button_button_down"]
 
 [editable path="bolha"]
+[editable path="cachorro"]

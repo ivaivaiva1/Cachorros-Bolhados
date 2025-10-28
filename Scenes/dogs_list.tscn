@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://xvwr86otjgkh"]
+
+[ext_resource type="Script" uid="uid://b7ynu4nqrqp50" path="res://Scripts/controllers/dogs_list.gd" id="1_l32g6"]
+[ext_resource type="PackedScene" uid="uid://cbjkejexexgc" path="res://Scenes/dogs/cachorro_0.tscn" id="2_j2jff"]
+
+[node name="dogs_list" type="Node2D"]
+script = ExtResource("1_l32g6")
+dog_scenes = Array[PackedScene]([ExtResource("2_j2jff")])
