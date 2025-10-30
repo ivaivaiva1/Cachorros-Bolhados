@@ -122,13 +122,13 @@ speed_scale = 0.3
 [node name="cachorro" parent="." instance=ExtResource("2_vq6bb")]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" parent="cachorro" index="1"]
+[node name="CollisionShape2D" parent="cachorro" index="2"]
 disabled = true
 
 [node name="BubbleAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_ojbyx")
-volume_db = 7.0
+volume_db = 10.0
 
 [connection signal="button_down" from="bolha/Button" to="." method="_on_button_button_down"]
 

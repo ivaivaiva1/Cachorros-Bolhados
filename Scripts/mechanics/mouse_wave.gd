@@ -2,11 +2,13 @@ extends Node2D
 
 @onready var wave_area: Area2D = %wave_area
 @onready var bump_player: AudioStreamPlayer2D = %BumpAudio
+var SFX_BUMP = "res://Audio/Dredge/bullet.wav"
 
 @export var min_force_y: float = 400.0
 @export var max_force_y: float = 700.0
 @export var min_force_x: float = 0.0
 @export var max_force_x: float = 800.0  # reduzido pra controle melhor
+
 
 func _process(delta: float) -> void:
 	wave_area.global_position = get_global_mouse_position()
@@ -16,7 +18,8 @@ func _process(delta: float) -> void:
 
 
 func do_mouse_wave() -> void:
-	bump_player.play()
+	#bump_player.play()
+	SfxManager.play_sfx(SFX_BUMP, -2)
 	ScreenShake.screen_shake(4, 0.2)
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var collision_shape: CollisionShape2D = wave_area.get_node("CollisionShape2D")

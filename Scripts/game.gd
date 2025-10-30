@@ -8,6 +8,8 @@ extends Node2D
 @onready var adaptive_difficulty_controller = %AdaptiveDifficulty
 @onready var bubble_spawner_controller = %BubbleSpawner
 
+var SFX_Death = "res://Audio/Dredge/boss-burnt.wav"
+
 func _ready() -> void:
 	GameManager.game_state = "Play"
 	GameManager.actual_score = 0
@@ -20,6 +22,7 @@ func _ready() -> void:
 func _on_game_over_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bubble"):
 		#GameManager.icon_container.add_icon(1)
+		SfxManager.play_sfx(SFX_Death, 4)
 		adaptive_difficulty_controller.on_dog_escaped()
 		bubble_spawner_controller.destroy_all_bubbles()
 		area.queue_free()

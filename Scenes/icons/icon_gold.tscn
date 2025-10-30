@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://do4wr34k80yr1"]
+[gd_scene load_steps=4 format=3 uid="uid://do4wr34k80yr1"]
 
+[ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="1_32kis"]
 [ext_resource type="Texture2D" uid="uid://5ittn553c65n" path="res://Assets/Artes/cachorro centralizado.png" id="1_hb00i"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t44fe"]
+shader = ExtResource("1_32kis")
+shader_parameter/flash_color = Color(1, 0.6666667, 0, 1)
+shader_parameter/flash_pct = 0.6870000326325
+
 [node name="Icon_gold" type="Sprite2D"]
-modulate = Color(1, 0, 0.9333334, 1)
 z_index = -90
+material = SubResource("ShaderMaterial_t44fe")
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("1_hb00i")
 hframes = 3

@@ -24,6 +24,7 @@ MainMusic="*res://Scenes/main_music.tscn"
 DogsList="*res://Scenes/dogs_list.tscn"
 SpawnText="*res://Scenes/spawn_text.tscn"
 ScreenShake="*res://Scenes/juice/screen_shake.tscn"
+SfxManager="*res://Scenes/autoload/sfx_manager.tscn"
 
 [display]
 
