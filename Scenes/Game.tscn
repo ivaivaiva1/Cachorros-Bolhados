@@ -282,7 +282,7 @@ disabled = true
 
 [node name="Basket6" parent="." instance=ExtResource("22_vvhu1")]
 position = Vector2(931, 281)
-multiplier = 10
+multiplier = 3
 
 [node name="Basket7" parent="." instance=ExtResource("22_vvhu1")]
 position = Vector2(481, 542)

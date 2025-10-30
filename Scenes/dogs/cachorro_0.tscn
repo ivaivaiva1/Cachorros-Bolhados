@@ -18,6 +18,7 @@ physics_material_override = SubResource("PhysicsMaterial_n34ai")
 script = ExtResource("1_lgsod")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(1.19209e-07, 5.96046e-08)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("2_mqut0")
