@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var multiplier = 2
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("dog"):
 		var cachorros: Cachorros = area.get_parent()
@@ -11,27 +13,31 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			# Armazena os parâmetros
 			var dog_id = cachorros.dog_id
 			var dog_pos: Vector2 = cachorros.global_position
-			var dog_velocity: Vector2 = rigidbody.linear_velocity  # velocidade do original
+			var dog_velocity: Vector2 = rigidbody.linear_velocity  
+			var dog_rotation: float = cachorros.rotation
 			
 			# Remove o cachorro original
 			cachorros.queue_free()
+			ScreenShake.screen_shake(multiplier, 0.4)
+			
+			SpawnText.display_text(str("X",multiplier), dog_pos)
 			
 			# Cria os dois clones na mesma posição, passando a velocidade
-			create_two_copies(dog_id, dog_pos, dog_velocity)
+			create_two_copies(dog_id, dog_pos, dog_velocity, dog_rotation)
 
 
 
-func create_two_copies(dog_id: int, spawn_position: Vector2, inherit_velocity: Vector2) -> void:
+func create_two_copies(dog_id: int, spawn_position: Vector2, inherit_velocity: Vector2, inherit_rotation: float) -> void:
 	var dog_scene: PackedScene = DogsList.dog_scenes[dog_id]
 	var lateral_speed: float = 150  # velocidade horizontal para empurrar os clones
 
-	for i in range(2):
+	for i in range(multiplier):
 		var new_dog: Cachorros = dog_scene.instantiate() as Cachorros
 		new_dog.is_a_copy = true
 		
 		# Spawn inicial ligeiramente deslocado
 		new_dog.global_position = spawn_position
-		
+		new_dog.rotation = inherit_rotation
 		get_tree().current_scene.add_child(new_dog)
 		
 		# Reduz 30% da velocidade vertical original

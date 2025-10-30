@@ -9,7 +9,7 @@ var adaptive_difficulty: float = 0
 
 
 # Balancing Vars
-var spawn_cooldown: float
-var fly_speed: float
-var tween_duration: float
-var tween_distance: float
+var spawn_cooldown: float 
+var fly_speed: float = 100
+var tween_duration: float = 2.5 
+var tween_distance: float = 80

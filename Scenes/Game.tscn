@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d2cj22y8bkni4"]
+[gd_scene load_steps=31 format=3 uid="uid://d2cj22y8bkni4"]
 
 [ext_resource type="Script" uid="uid://dnjf0fgnvuhy1" path="res://Scripts/background.gd" id="1_ewpxn"]
 [ext_resource type="Script" uid="uid://ddrasymxcaq5j" path="res://Scripts/game.gd" id="1_o3eg0"]
@@ -15,13 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://b0hwdr1gjhyvr" path="res://Scenes/icons/icon_1.tscn" id="15_665my"]
 [ext_resource type="PackedScene" uid="uid://rtcmdufu80u6" path="res://Scenes/icons/icon_2.tscn" id="16_jgue8"]
 [ext_resource type="PackedScene" uid="uid://bnx62jvox7x" path="res://Scenes/icons/icon_3.tscn" id="17_bjif3"]
+[ext_resource type="Script" uid="uid://ckcxpas62kb8q" path="res://Scripts/mechanics/mouse_wave.gd" id="17_lbihj"]
 [ext_resource type="PackedScene" uid="uid://do4wr34k80yr1" path="res://Scenes/icons/icon_gold.tscn" id="18_raj38"]
 [ext_resource type="PackedScene" uid="uid://cmld782ijgd4y" path="res://Scenes/icons/icon_4.tscn" id="18_tc81j"]
 [ext_resource type="PackedScene" uid="uid://dpyy4hyl0syt1" path="res://Scenes/icons/icon_5.tscn" id="19_8bqg7"]
+[ext_resource type="AudioStream" uid="uid://dci3r6ht0wk2n" path="res://Audio/cats game/322533__fran89__bongo.wav" id="19_lbihj"]
 [ext_resource type="Script" uid="uid://i48va3nvsjfq" path="res://Scripts/adaptive_difficulty.gd" id="20_raj38"]
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="21_rajel"]
-[ext_resource type="AudioStream" uid="uid://cgjwvhfgxq3ma" path="res://Audio/tremendo_0.6s.mp3" id="22_mx030"]
 [ext_resource type="PackedScene" uid="uid://bgwmxpcndenmw" path="res://Scenes/mechanics/basket.tscn" id="22_vvhu1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vvhu1"]
+radius = 219.2282
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3cqs"]
 size = Vector2(3718, 176)
@@ -50,6 +54,9 @@ size = Vector2(128.32904, 129.09448)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o3eg0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(683, 384)
 
 [node name="Backgrounds" type="Node2D" parent="."]
 z_index = -100
@@ -119,10 +126,26 @@ icon_gold = ExtResource("18_raj38")
 unique_name_in_owner = true
 script = ExtResource("20_raj38")
 
+[node name="MouseWave" type="Node2D" parent="."]
+script = ExtResource("17_lbihj")
+
+[node name="wave_area" type="Area2D" parent="MouseWave"]
+unique_name_in_owner = true
+position = Vector2(311, 398)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseWave/wave_area"]
+shape = SubResource("CircleShape2D_vvhu1")
+
+[node name="Sprite2D" type="Sprite2D" parent="MouseWave/wave_area"]
+visible = false
+modulate = Color(1, 1, 1, 0.2901961)
+scale = Vector2(1.6875, 1.6875)
+texture = ExtResource("21_rajel")
+
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("22_mx030")
-volume_db = 15.0
+stream = ExtResource("19_lbihj")
+volume_db = 4.903
 
 [node name="KillDogsArea" type="Area2D" parent="." groups=["death"]]
 
@@ -257,26 +280,12 @@ position = Vector2(-0.15020752, -0.15777588)
 shape = SubResource("RectangleShape2D_rajel")
 disabled = true
 
-[node name="Basket" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(417, 298)
-
-[node name="Basket2" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(761, 174)
-
-[node name="Basket3" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(1230, 620)
-
-[node name="Basket4" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(969, 622)
-
-[node name="Basket5" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(692, 620)
-
 [node name="Basket6" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(417, 617)
+position = Vector2(931, 281)
+multiplier = 10
 
 [node name="Basket7" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(167, 612)
+position = Vector2(481, 542)
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]
 [connection signal="button_down" from="game_over_ui/play_again" to="." method="_on_play_again_button_down"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch05dl43mvocx"]
+
+[ext_resource type="Script" uid="uid://f38g4ianxdir" path="res://Scripts/juice/screen_shake.gd" id="1_v2rje"]
+
+[node name="screen_shake" type="Node2D"]
+script = ExtResource("1_v2rje")

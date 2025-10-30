@@ -49,7 +49,7 @@ func on_dog_escaped() -> void:
 
 	# Só reduz a dificuldade se o cooldown permitir
 	if loss_cooldown_timer >= difficulty_loss_cooldown:
-		GameManager.adaptive_difficulty -= 2.0
+		GameManager.adaptive_difficulty -= 4.0
 		GameManager.adaptive_difficulty = clamp(GameManager.adaptive_difficulty, 0.0, max_difficulty)
 		loss_cooldown_timer = 0.0  # reinicia o cooldown
 

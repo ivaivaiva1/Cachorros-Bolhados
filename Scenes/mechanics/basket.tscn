@@ -7,10 +7,11 @@
 size = Vector2(32, 39)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fvplk"]
-a = Vector2(-56.26, 0)
-b = Vector2(56.26, 0)
+a = Vector2(-40, 0)
+b = Vector2(40, 0)
 
 [node name="Basket" type="Node2D"]
+scale = Vector2(2, 1.5)
 script = ExtResource("1_fvplk")
 
 [node name="Fundo" type="Sprite2D" parent="."]

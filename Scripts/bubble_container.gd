@@ -23,17 +23,18 @@ func _process(delta: float) -> void:
 
 
 func _on_button_button_down() -> void:
-	if GameManager.game_state != "Play": return
-	bubble_audio.play()
-	is_alive = false
-	anim_player.set_speed_scale(0.0)
-	bubble_object.queue_free()
-	var instance = catioro_scene.instantiate()
-	get_parent().add_child(instance)
-	instance.rotation_degrees = rotation_degrees
-	instance.global_position = global_position
-	instance.set_free()
-	catioro.visible = false
-	need_death = true
-	GameManager.actual_score += 1
-	print(GameManager.actual_score)
+	if GameManager.game_state == "Play" || GameManager.game_state == "Menu":
+		ScreenShake.screen_shake(2, 0.2) 
+		bubble_audio.play()
+		is_alive = false
+		anim_player.set_speed_scale(0.0)
+		bubble_object.queue_free()
+		var instance = catioro_scene.instantiate()
+		get_parent().add_child(instance)
+		instance.rotation_degrees = rotation_degrees
+		instance.global_position = global_position
+		instance.set_free()
+		catioro.visible = false
+		need_death = true
+		GameManager.actual_score += 1
+		print(GameManager.actual_score)

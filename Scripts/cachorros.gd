@@ -12,10 +12,10 @@ func _ready() -> void:
 	# Evita que ele caia antes da hora
 	sleeping = true
 	gravity_scale = 0.0
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("change_bg"):
-		jump()
+#
+#func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("change_bg"):
+		#jump()
 
 #func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	#if not is_released:
