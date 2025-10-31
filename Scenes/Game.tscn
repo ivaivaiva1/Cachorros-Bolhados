@@ -127,6 +127,7 @@ unique_name_in_owner = true
 script = ExtResource("20_raj38")
 
 [node name="MouseWave" type="Node2D" parent="."]
+visible = false
 script = ExtResource("17_lbihj")
 
 [node name="wave_area" type="Area2D" parent="MouseWave"]
@@ -282,11 +283,9 @@ disabled = true
 
 [node name="Basket6" parent="." instance=ExtResource("22_vvhu1")]
 position = Vector2(433, 534)
-multiplier = 3
 
 [node name="Basket7" parent="." instance=ExtResource("22_vvhu1")]
 position = Vector2(933, 234)
-multiplier = 5
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]
 [connection signal="button_down" from="game_over_ui/play_again" to="." method="_on_play_again_button_down"]

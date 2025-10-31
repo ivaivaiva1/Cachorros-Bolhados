@@ -35,9 +35,9 @@ func _physics_process(delta: float) -> void:
 func do_tween():
 	if bubble.is_alive == false: return
 	var direction
-	if bubble.global_position.x < 30:
+	if bubble.global_position.x < 50:
 		direction = 1
-	elif bubble.global_position.x > 1336:
+	elif bubble.global_position.x > 1316.0:
 		direction = -1
 	else:
 		direction = [-1, 1].pick_random()

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://civdciqh2cdya"]
+
+[ext_resource type="Script" uid="uid://dvsk8leot3nxf" path="res://Scripts/controllers/mouse_cursor_controller.gd" id="1_tp318"]
+[ext_resource type="Texture2D" uid="uid://27jay16pii8t" path="res://Assets/Provisorio/wand_cursor.png" id="2_sk444"]
+
+[node name="mouse_cursor_controller" type="Node"]
+script = ExtResource("1_tp318")
+cursor_texture = ExtResource("2_sk444")

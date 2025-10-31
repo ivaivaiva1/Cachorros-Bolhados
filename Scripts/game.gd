@@ -14,9 +14,9 @@ func _ready() -> void:
 	GameManager.game_state = "Play"
 	GameManager.actual_score = 0
 
-#func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("change_bg"):
-		#bump_player.play()
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reload_scene"):
+		get_tree().reload_current_scene() 
 
 
 func _on_game_over_area_area_entered(area: Area2D) -> void:

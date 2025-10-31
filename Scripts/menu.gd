@@ -1,8 +1,9 @@
 extends Node2D
 
-func _ready() -> void:
-	#GameManager.game_mode == "Menu"
-	pass
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("auto_play"):
+		GameManager.auto_play = true
+
 
 func _on_easy_button_button_down() -> void:
 	GameManager.game_mode = "Fácil"

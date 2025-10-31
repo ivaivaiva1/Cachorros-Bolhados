@@ -25,27 +25,33 @@ func do_mouse_wave() -> void:
 	var collision_shape: CollisionShape2D = wave_area.get_node("CollisionShape2D")
 	var shape: CircleShape2D = collision_shape.shape as CircleShape2D
 	var radius: float = shape.radius
-
+	
 	for area in wave_area.get_overlapping_areas():
 		if area.is_in_group("dog"):
 			var cachorro: Cachorros = area.get_parent()
 			if not cachorro.is_released:
 				continue
-
+			
 			var force_y: float = get_vertical_push(mouse_pos, cachorro.global_position, radius)
 			var force_x: float = get_horizontal_push(mouse_pos, cachorro.global_position, radius)
-
+			
 			var body: RigidBody2D = cachorro as RigidBody2D
 			if body:
 				# Zera a velocidade atual antes de aplicar a nova força
 				body.linear_velocity = Vector2.ZERO
-
-				# Calcula direção Y
+				
+				# Aplica força vertical
 				var direction_y: float = sign(cachorro.global_position.y - mouse_pos.y)
 				body.linear_velocity.y += force_y * direction_y
-
-				# Aplica força horizontal somente se delta X for relevante
+				
+				# Aplica força horizontal
 				body.linear_velocity.x += force_x
+				
+				# 🔹 Aplica torque proporcional à força horizontal
+				# Multiplicador ajusta intensidade do giro
+				var torque_from_push = clamp(force_x * 30.0, -20000.0, 20000.0)
+				body.apply_torque_impulse(torque_from_push)
+
 
 
 func get_vertical_push(mouse_pos: Vector2, dog_pos: Vector2, radius: float) -> float:

@@ -11,34 +11,55 @@ class_name bubble_containers
 @onready var bubble_audio: AudioStreamPlayer2D = %BubbleAudio
 
 var is_alive: bool = true
-
-var auto_kill_timer = 1
-
+var auto_kill_timer := 1.0
 var need_death: bool = false
 
+var auto_destruction_y
+
+func _ready() -> void:
+	if GameManager.auto_play:
+		auto_destruction_y = randf_range(30.0, 590.0)
+
 func _process(delta: float) -> void:
-	if need_death:
+	if !is_alive:
 		auto_kill_timer -= delta
-	if auto_kill_timer <= 0:
-		queue_free()
-	
+		if auto_kill_timer <= 0:
+			queue_free()
+		return
+
+	# 🔹 Mantém sincronização visual
 	catioro_sprite_container.scale = scale
 	catioro_sprite_container.skew = skew
 
+	# 🔹 Auto-destruição automática em modo auto_play
+	if auto_destruction_y != null:
+		if global_position.y < auto_destruction_y:
+			pop()
+
 
 func _on_button_button_down() -> void:
-	if GameManager.game_state == "Play" || GameManager.game_state == "Menu":
-		ScreenShake.screen_shake(1.5, 0.2) 
-		bubble_audio.play()
-		is_alive = false
-		anim_player.set_speed_scale(0.0)
-		bubble_object.queue_free()
-		var instance = catioro_scene.instantiate()
-		get_parent().add_child(instance)
-		instance.rotation_degrees = rotation_degrees
-		instance.global_position = global_position
-		instance.set_free()
-		catioro.visible = false
-		need_death = true
-		GameManager.actual_score += 1
-		print(GameManager.actual_score)
+	if GameManager.game_state == "Play" or GameManager.game_state == "Menu":
+		pop()
+
+func pop():
+	print("actual_pos: ", global_position, "|| auto_destruction_y: ",auto_destruction_y)
+	if !is_alive:
+		return
+	is_alive = false
+
+	var bubble_pos = global_position
+	var mouse_pos = get_global_mouse_position()
+
+	ScreenShake.screen_shake(1.5, 0.2)
+	bubble_audio.play()
+
+	anim_player.set_speed_scale(0.0)
+	bubble_object.queue_free()
+
+	var instance = catioro_scene.instantiate()
+	get_parent().add_child(instance)
+	instance.rotation_degrees = rotation_degrees
+	instance.global_position = bubble_pos
+	instance.set_free()
+	catioro.visible = false
+	GameManager.actual_score += 1

@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgwmxpcndenmw"]
+[gd_scene load_steps=12 format=3 uid="uid://bgwmxpcndenmw"]
 
 [ext_resource type="Script" uid="uid://dkrmsdjvmnfk5" path="res://Scripts/mechanics/basket.gd" id="1_fvplk"]
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="1_xw0fy"]
+[ext_resource type="Texture2D" uid="uid://c6slfg3x7uwml" path="res://Assets/Provisorio/oie_z9LvaosEEWsV.png" id="3_7sqy6"]
 [ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="3_yxhp2"]
+[ext_resource type="Texture2D" uid="uid://cgnuf131bqmg0" path="res://Assets/Provisorio/cloud_tile.png" id="4_h3wfd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sqy6"]
+shader = ExtResource("3_yxhp2")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_pct = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h3wfd"]
 shader = ExtResource("3_yxhp2")
@@ -10,20 +17,28 @@ shader_parameter/flash_color = Color(1, 0, 0, 1)
 shader_parameter/flash_pct = 0.6550000311125
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvhu1"]
-size = Vector2(32, 39)
+size = Vector2(33.243904, 46.082626)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fvplk"]
 a = Vector2(-40, 0)
 b = Vector2(40, 0)
 
+[sub_resource type="SystemFont" id="SystemFont_h3wfd"]
+font_names = PackedStringArray("Cambria Math")
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3wfd"]
+font = SubResource("SystemFont_h3wfd")
+font_size = 14
+font_color = Color(1, 1, 0, 1)
+
 [node name="Basket" type="Node2D"]
-scale = Vector2(2, 1.5)
+scale = Vector2(2, 2)
 script = ExtResource("1_fvplk")
 
 [node name="Fundo" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 z_index = -100
-scale = Vector2(1.378906, 0.76171875)
+scale = Vector2(1.379, 0.562)
 texture = ExtResource("1_xw0fy")
 
 [node name="ColorRect" type="ColorRect" parent="Fundo"]
@@ -31,28 +46,59 @@ offset_left = -58.742218
 offset_top = 13.128205
 offset_right = 58.37961
 offset_bottom = 63.8906
-color = Color(0, 0, 0, 1)
+color = Color(0.61, 0.2867, 0.2867, 0.8901961)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fundo"]
 position = Vector2(-194.9009, -461.78464)
 scale = Vector2(0.72521263, 1.3128206)
 
+[node name="OieZ9LvaosEeWsV" type="Sprite2D" parent="Fundo/StaticBody2D"]
+visible = false
+position = Vector2(158.25754, 371.40286)
+rotation = -0.4886922
+scale = Vector2(0.5, 0.678)
+texture = ExtResource("3_7sqy6")
+
+[node name="CloudTile" type="Sprite2D" parent="Fundo/StaticBody2D"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_7sqy6")
+position = Vector2(196.25494, 383.60123)
+scale = Vector2(0.39997277, 0.5421486)
+texture = ExtResource("4_h3wfd")
+
 [node name="Sprite2D" type="Sprite2D" parent="Fundo/StaticBody2D"]
+visible = false
 material = SubResource("ShaderMaterial_h3wfd")
 position = Vector2(197, 381)
 scale = Vector2(0.2578125, 0.3046875)
 texture = ExtResource("1_xw0fy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fundo/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fundo/StaticBody2D"]
 visible = false
-position = Vector2(197, 381)
+position = Vector2(197.62195, 384.27893)
 shape = SubResource("RectangleShape2D_vvhu1")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Fundo"]
 position = Vector2(-90.470276, -461.78464)
 scale = Vector2(0.72521263, 1.3128206)
 
+[node name="OieZ9LvaosEeWsV2" type="Sprite2D" parent="Fundo/StaticBody2D2"]
+visible = false
+position = Vector2(236.2424, 370.04752)
+rotation = 0.49218288
+scale = Vector2(0.295, 0.4)
+texture = ExtResource("3_7sqy6")
+flip_h = true
+
+[node name="CloudTile2" type="Sprite2D" parent="Fundo/StaticBody2D2"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_7sqy6")
+position = Vector2(196.74509, 383.60123)
+scale = Vector2(0.39997277, 0.5421486)
+texture = ExtResource("4_h3wfd")
+
 [node name="Sprite2D" type="Sprite2D" parent="Fundo/StaticBody2D2"]
+visible = false
 material = SubResource("ShaderMaterial_h3wfd")
 position = Vector2(197, 381)
 scale = Vector2(0.2578125, 0.3046875)
@@ -60,7 +106,7 @@ texture = ExtResource("1_xw0fy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fundo/StaticBody2D2"]
 visible = false
-position = Vector2(197, 381)
+position = Vector2(197.62195, 384.27893)
 shape = SubResource("RectangleShape2D_vvhu1")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -70,6 +116,17 @@ position = Vector2(0, 12)
 modulate = Color(1.1185967, 0, 1.1374342, 1)
 position = Vector2(0, 9.333332)
 shape = SubResource("SegmentShape2D_fvplk")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -88.5
+offset_top = 7.0
+offset_right = 89.5
+offset_bottom = 36.0
+text = "X2"
+label_settings = SubResource("LabelSettings_h3wfd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
