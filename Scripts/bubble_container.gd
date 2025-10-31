@@ -4,6 +4,7 @@ class_name bubble_containers
 @export var catioro_scene: PackedScene
 
 @onready var catioro: Cachorros = %cachorro
+@onready var catioro_sprite_container: Node2D = catioro.get_node("sprite_container")
 @onready var bubble_moviment: bubble_moviment = %bubble_moviment
 @onready var anim_player: AnimationPlayer = %AnimationPlayer
 @onready var bubble_object: Object = %bolha
@@ -20,6 +21,9 @@ func _process(delta: float) -> void:
 		auto_kill_timer -= delta
 	if auto_kill_timer <= 0:
 		queue_free()
+	
+	catioro_sprite_container.scale = scale
+	catioro_sprite_container.skew = skew
 
 
 func _on_button_button_down() -> void:

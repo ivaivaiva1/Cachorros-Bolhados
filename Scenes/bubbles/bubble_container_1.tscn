@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cili3i8us0yag"]
+[gd_scene load_steps=17 format=3 uid="uid://cili3i8us0yag"]
 
 [ext_resource type="Script" uid="uid://bdshlfutd7xrd" path="res://Scripts/bubble_moviment.gd" id="1_g3s32"]
 [ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubbles/bubble_1.tscn" id="1_wxjet"]
@@ -76,6 +76,14 @@ _data = {
 &"bubble_anim": SubResource("Animation_ntt4h")
 }
 
+[sub_resource type="Animation" id="Animation_jq2mf"]
+resource_name = "bubble_anim_cachorro"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xyyu6"]
+_data = {
+&"bubble_anim_cachorro": SubResource("Animation_jq2mf")
+}
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ojbyx"]
 streams_count = 4
 stream_0/stream = ExtResource("6_pawm8")
@@ -120,6 +128,9 @@ autoplay = "bubble_anim"
 speed_scale = 0.3
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xyyu6")
+}
 
 [node name="cachorro" parent="." instance=ExtResource("2_vq6bb")]
 unique_name_in_owner = true

@@ -39,7 +39,9 @@ physics_material_override = SubResource("PhysicsMaterial_n34ai")
 script = ExtResource("1_lgsod")
 dog_id = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="sprite_container" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="sprite_container"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_mqut0")
 position = Vector2(0, 10.000001)
