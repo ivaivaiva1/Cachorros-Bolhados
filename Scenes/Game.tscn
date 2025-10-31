@@ -13,10 +13,10 @@
 [ext_resource type="Script" uid="uid://d3j0rsmox5yrs" path="res://Scripts/icons_container.gd" id="14_u7mvg"]
 [ext_resource type="Texture2D" uid="uid://cyq6ityjcsvpf" path="res://HUD 2/Menu Principal.png" id="15_1y8g8"]
 [ext_resource type="PackedScene" uid="uid://b0hwdr1gjhyvr" path="res://Scenes/icons/icon_1.tscn" id="15_665my"]
+[ext_resource type="PackedScene" uid="uid://c0ohj25gpla2f" path="res://Scenes/icons/icon_gold_new.tscn" id="15_lbihj"]
 [ext_resource type="PackedScene" uid="uid://rtcmdufu80u6" path="res://Scenes/icons/icon_2.tscn" id="16_jgue8"]
 [ext_resource type="PackedScene" uid="uid://bnx62jvox7x" path="res://Scenes/icons/icon_3.tscn" id="17_bjif3"]
 [ext_resource type="Script" uid="uid://ckcxpas62kb8q" path="res://Scripts/mechanics/mouse_wave.gd" id="17_lbihj"]
-[ext_resource type="PackedScene" uid="uid://do4wr34k80yr1" path="res://Scenes/icons/icon_gold.tscn" id="18_raj38"]
 [ext_resource type="PackedScene" uid="uid://cmld782ijgd4y" path="res://Scenes/icons/icon_4.tscn" id="18_tc81j"]
 [ext_resource type="PackedScene" uid="uid://dpyy4hyl0syt1" path="res://Scenes/icons/icon_5.tscn" id="19_8bqg7"]
 [ext_resource type="AudioStream" uid="uid://dci3r6ht0wk2n" path="res://Audio/cats game/322533__fran89__bongo.wav" id="19_lbihj"]
@@ -120,7 +120,7 @@ position = Vector2(1330.4, 819)
 [node name="IconsContainer" type="Node2D" parent="."]
 script = ExtResource("14_u7mvg")
 icon_scenes = Array[PackedScene]([ExtResource("15_665my"), ExtResource("16_jgue8"), ExtResource("17_bjif3"), ExtResource("18_tc81j"), ExtResource("19_8bqg7")])
-icon_gold = ExtResource("18_raj38")
+icon_gold = ExtResource("15_lbihj")
 
 [node name="AdaptiveDifficulty" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -281,11 +281,12 @@ shape = SubResource("RectangleShape2D_rajel")
 disabled = true
 
 [node name="Basket6" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(931, 281)
+position = Vector2(433, 534)
 multiplier = 3
 
 [node name="Basket7" parent="." instance=ExtResource("22_vvhu1")]
-position = Vector2(481, 542)
+position = Vector2(933, 234)
+multiplier = 5
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]
 [connection signal="button_down" from="game_over_ui/play_again" to="." method="_on_play_again_button_down"]

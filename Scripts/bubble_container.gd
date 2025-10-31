@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _on_button_button_down() -> void:
 	if GameManager.game_state == "Play" || GameManager.game_state == "Menu":
-		ScreenShake.screen_shake(2, 0.2) 
+		ScreenShake.screen_shake(1.5, 0.2) 
 		bubble_audio.play()
 		is_alive = false
 		anim_player.set_speed_scale(0.0)

@@ -4,23 +4,6 @@ extends Node2D
 var SFX_COIN = "res://Audio/Dredge/coin.wav"
 var SFX_DUPLICATE = "res://Audio/Dredge/duplicate.wav"
 
-#func _on_area_2d_area_entered(area: Area2D) -> void:
-	#if area.is_in_group("dog"):
-		#var cachorros: Cachorros = area.get_parent()
-		#if cachorros.is_a_copy:
-			#return
-	#
-		#var rigidbody: RigidBody2D = cachorros as RigidBody2D
-		#if rigidbody.linear_velocity.y > 0:
-			#var dog_id = cachorros.dog_id
-			#var dog_pos = cachorros.global_position
-			#var dog_velocity = rigidbody.linear_velocity
-			#var dog_rotation = cachorros.rotation
-			#
-			#print("passou")
-			#phantom_effect(cachorros, dog_id, dog_pos, dog_velocity, dog_rotation)
-			#SpawnText.display_text(str("X", multiplier), dog_pos)
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.is_in_group("dog"):
 			var cachorros: Cachorros = body
@@ -40,7 +23,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				SfxManager.play_sfx(SFX_COIN, -4)
 				SpawnText.display_text(str("X", multiplier), dog_pos)
 				
-				await hit_freeze(0.3)
+				hit_freeze(0.3, 0.01)
 
 func phantom_effect(cachorros: Cachorros, dog_id: int, dog_pos: Vector2, dog_velocity: Vector2, dog_rotation: float) -> void:
 	# Desativa colisões
@@ -113,11 +96,11 @@ func create_two_copies(dog_id: int, spawn_position: Vector2, inherit_velocity: V
 			new_dog.set_free()
 
 
-func hit_freeze(time_scale: float = 0.0, duration: float = 0.1) -> void:
-	var original_time_scale = Engine.time_scale
-	Engine.time_scale = time_scale
-	
-	# Timer para voltar ao tempo normal
-	var t = get_tree().create_timer(duration, false)
-	await t.timeout
+
+func hit_freeze(time_scale: float = 0.0, duration: float = 0.1) -> void: 
+	var original_time_scale = Engine.time_scale 
+	Engine.time_scale = time_scale 
+	# Timer para voltar ao tempo normal 
+	var t = get_tree().create_timer(duration, false) 
+	await t.timeout 
 	Engine.time_scale = original_time_scale

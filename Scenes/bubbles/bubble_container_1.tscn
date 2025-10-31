@@ -119,10 +119,12 @@ libraries = {
 autoplay = "bubble_anim"
 speed_scale = 0.3
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+
 [node name="cachorro" parent="." instance=ExtResource("2_vq6bb")]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" parent="cachorro" index="2"]
+[node name="CollisionShape2D" parent="cachorro" index="1"]
 disabled = true
 
 [node name="BubbleAudio" type="AudioStreamPlayer2D" parent="."]

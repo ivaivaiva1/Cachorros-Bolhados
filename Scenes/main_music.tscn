@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bnilsueapih7w"]
 
-[ext_resource type="AudioStream" uid="uid://chvmuv73bbw4l" path="res://Audio/Dredge/YTDown.com_YouTube_Dredge-OST-Main-Theme_Media_X9EmRhWSIqQ_008_128k.mp3" id="1_8y60d"]
+[ext_resource type="AudioStream" uid="uid://dl23kjd8nuaen" path="res://Audio/Dredge/Heavy Heads - Romain Gauthier (youtube).mp3" id="1_8y60d"]
 
 [node name="Main Music" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_8y60d")
-volume_db = -2.019
+volume_db = -4.0
 autoplay = true

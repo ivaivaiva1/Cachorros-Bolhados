@@ -22,7 +22,8 @@ func _ready() -> void:
 func _on_game_over_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bubble"):
 		#GameManager.icon_container.add_icon(1)
-		SfxManager.play_sfx(SFX_Death, 4)
+		SfxManager.play_sfx(SFX_Death, 0)
+		ScreenShake.screen_shake(10, 0.7)
 		adaptive_difficulty_controller.on_dog_escaped()
 		bubble_spawner_controller.destroy_all_bubbles()
 		area.queue_free()

@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bnx62jvox7x" path="res://Scenes/icons/icon_3.tscn" id="17_h63v2"]
 [ext_resource type="PackedScene" uid="uid://cmld782ijgd4y" path="res://Scenes/icons/icon_4.tscn" id="18_l6llh"]
 [ext_resource type="PackedScene" uid="uid://dpyy4hyl0syt1" path="res://Scenes/icons/icon_5.tscn" id="19_ocger"]
-[ext_resource type="PackedScene" uid="uid://do4wr34k80yr1" path="res://Scenes/icons/icon_gold.tscn" id="20_i37ye"]
+[ext_resource type="PackedScene" uid="uid://do4wr34k80yr1" path="res://Scenes/icons/icon_gold_old.tscn" id="20_i37ye"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_njt47"]
 action = &"click_button"
@@ -167,5 +167,8 @@ position = Vector2(0, -1239)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverArea"]
 position = Vector2(695, 1047)
 shape = SubResource("RectangleShape2D_d77ms")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(683, 384)
 
 [connection signal="button_down" from="EasyButton" to="." method="_on_easy_button_button_down"]

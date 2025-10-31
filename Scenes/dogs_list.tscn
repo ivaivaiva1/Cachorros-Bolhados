@@ -5,4 +5,4 @@
 
 [node name="dogs_list" type="Node2D"]
 script = ExtResource("1_l32g6")
-dog_scenes = Array[PackedScene]([ExtResource("2_j2jff")])
+dog_scenes = Array[PackedScene]([ExtResource("2_j2jff"), ExtResource("2_j2jff"), ExtResource("2_j2jff"), ExtResource("2_j2jff"), ExtResource("2_j2jff"), ExtResource("2_j2jff")])

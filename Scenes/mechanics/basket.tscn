@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgwmxpcndenmw"]
+[gd_scene load_steps=7 format=3 uid="uid://bgwmxpcndenmw"]
 
 [ext_resource type="Script" uid="uid://dkrmsdjvmnfk5" path="res://Scripts/mechanics/basket.gd" id="1_fvplk"]
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="1_xw0fy"]
+[ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="3_yxhp2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3wfd"]
+shader = ExtResource("3_yxhp2")
+shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/flash_pct = 0.6550000311125
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvhu1"]
 size = Vector2(32, 39)
@@ -15,16 +21,24 @@ scale = Vector2(2, 1.5)
 script = ExtResource("1_fvplk")
 
 [node name="Fundo" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 z_index = -100
 scale = Vector2(1.378906, 0.76171875)
 texture = ExtResource("1_xw0fy")
+
+[node name="ColorRect" type="ColorRect" parent="Fundo"]
+offset_left = -58.742218
+offset_top = 13.128205
+offset_right = 58.37961
+offset_bottom = 63.8906
+color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fundo"]
 position = Vector2(-194.9009, -461.78464)
 scale = Vector2(0.72521263, 1.3128206)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fundo/StaticBody2D"]
-modulate = Color(1, 0.9676589, 0, 1)
+material = SubResource("ShaderMaterial_h3wfd")
 position = Vector2(197, 381)
 scale = Vector2(0.2578125, 0.3046875)
 texture = ExtResource("1_xw0fy")
@@ -39,7 +53,7 @@ position = Vector2(-90.470276, -461.78464)
 scale = Vector2(0.72521263, 1.3128206)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fundo/StaticBody2D2"]
-modulate = Color(1, 0.9676589, 0, 1)
+material = SubResource("ShaderMaterial_h3wfd")
 position = Vector2(197, 381)
 scale = Vector2(0.2578125, 0.3046875)
 texture = ExtResource("1_xw0fy")

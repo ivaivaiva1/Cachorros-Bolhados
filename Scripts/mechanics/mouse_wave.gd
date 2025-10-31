@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 func do_mouse_wave() -> void:
 	#bump_player.play()
 	SfxManager.play_sfx(SFX_BUMP, -2)
-	ScreenShake.screen_shake(4, 0.2)
+	ScreenShake.screen_shake(3, 0.2)
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var collision_shape: CollisionShape2D = wave_area.get_node("CollisionShape2D")
 	var shape: CircleShape2D = collision_shape.shape as CircleShape2D
