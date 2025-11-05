@@ -1,19 +1,12 @@
 extends Node
 
-func display_text(value: String, position: Vector2):
+func display_text(value: String, position: Vector2, color: Color = Color("FFFF00")):
 	var number = Label.new()
 	number.global_position = position
 	number.text = value
 	number.z_index = 5
 	number.label_settings = LabelSettings.new()
 	
-	#var color = "#FFF"
-	#var color = "#B22"
-	var color = "#FFFF00"
-	#if is_critical:
-		#color = "#B22"
-	#if value == 0:
-		#color = "#FFF8"
 	
 	number.label_settings.font_color = color
 	number.label_settings.font_size = 25

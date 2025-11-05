@@ -17,6 +17,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reload_scene"):
 		get_tree().reload_current_scene() 
+	
+	if Input.is_action_just_pressed("auto_play"):
+		if GameManager.auto_play == true:
+			GameManager.auto_play = false
+		else:
+			GameManager.auto_play = true
 
 
 func _on_game_over_area_area_entered(area: Area2D) -> void:

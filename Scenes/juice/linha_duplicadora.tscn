@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://rbsky2n1tifv"]
+
+[ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="1_4diu0"]
+[ext_resource type="Script" uid="uid://b21mgxnwx2erj" path="res://Scripts/juice/linha_duplicadora.gd" id="1_435qg"]
+[ext_resource type="Texture2D" uid="uid://dpaa0jc8murra" path="res://Assets/Provisorio/dotted line.png" id="2_435qg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0vto"]
+shader = ExtResource("1_4diu0")
+shader_parameter/flash_color = Color(1, 0.32, 0.75066656, 1)
+shader_parameter/flash_pct = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_435qg"]
+b = Vector2(1365.665, 0)
+
+[node name="Linha Duplicadora" type="Node2D"]
+script = ExtResource("1_435qg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+material = SubResource("ShaderMaterial_i0vto")
+position = Vector2(684, 0)
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("2_435qg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_435qg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

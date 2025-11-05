@@ -2,28 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bruh1o1ojlpky" path="res://Scripts/cachorros.gd" id="1_lgsod"]
 [ext_resource type="Texture2D" uid="uid://bp63fcej3u8g1" path="res://Assets/Artes/Cachorro4.png" id="2_lgsod"]
+[ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="2_mqut0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n34ai"]
 friction = 0.0
 bounce = 0.8
 
-[sub_resource type="Shader" id="Shader_lgsod"]
-code = "shader_type canvas_item;
-
-uniform vec4 flash_color: source_color = vec4(1.0f);
-uniform float flash_pct: hint_range(0.0, 1.0) = 0.0f;
-
-void fragment() {
-    vec4 original_color = texture(TEXTURE, UV);
-
-    vec4 mixed_color = mix(original_color, flash_color, flash_pct);
-
-    COLOR = mixed_color;
-    COLOR.a = original_color.a;
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mqut0"]
-shader = SubResource("Shader_lgsod")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8v3i8"]
+shader = ExtResource("2_mqut0")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_pct = 0.0
 
@@ -44,7 +30,8 @@ dog_id = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="sprite_container"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_mqut0")
+z_index = 1000
+material = SubResource("ShaderMaterial_8v3i8")
 position = Vector2(0, 10.000001)
 scale = Vector2(0.175, 0.175)
 texture = ExtResource("2_lgsod")
@@ -54,6 +41,7 @@ visible = false
 shape = SubResource("CircleShape2D_n34ai")
 
 [node name="Area2D" type="Area2D" parent="." groups=["dog"]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2.98023e-08, -0.3125)

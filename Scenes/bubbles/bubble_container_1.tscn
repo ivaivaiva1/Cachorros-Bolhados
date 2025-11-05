@@ -99,6 +99,9 @@ catioro_scene = ExtResource("2_vq6bb")
 unique_name_in_owner = true
 scale = Vector2(6.3, 6.3)
 
+[node name="Sprite2D" parent="bolha" index="0"]
+z_index = 1001
+
 [node name="Button" parent="bolha" index="1"]
 offset_left = -15.873
 offset_top = -16.6667

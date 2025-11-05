@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehi4vsv35dx3"]
+
+[ext_resource type="Script" uid="uid://cx5kysa7qi3xd" path="res://Scripts/juice/shockwave_spawner.gd" id="1_ulplp"]
+[ext_resource type="PackedScene" uid="uid://br7wpl2djh8bm" path="res://Scenes/juice/shockwave_scene.tscn" id="2_hdo7t"]
+
+[node name="shockwave_spawner" type="CanvasLayer"]
+script = ExtResource("1_ulplp")
+shockwave_scene = ExtResource("2_hdo7t")
