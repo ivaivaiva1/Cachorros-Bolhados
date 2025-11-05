@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5082tfxv0qy1"]
+
+[ext_resource type="Script" uid="uid://e3lkmh8giekv" path="res://Scripts/mechanics/duplicate_cats.gd" id="1_qwwy8"]
+
+[node name="duplicate_cats" type="Node2D"]
+script = ExtResource("1_qwwy8")

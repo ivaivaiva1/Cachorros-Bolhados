@@ -22,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dci3r6ht0wk2n" path="res://Audio/cats game/322533__fran89__bongo.wav" id="19_lbihj"]
 [ext_resource type="Script" uid="uid://i48va3nvsjfq" path="res://Scripts/adaptive_difficulty.gd" id="20_raj38"]
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="21_rajel"]
-[ext_resource type="PackedScene" uid="uid://rbsky2n1tifv" path="res://Scenes/juice/linha_duplicadora.tscn" id="24_raj38"]
+[ext_resource type="PackedScene" uid="uid://rbsky2n1tifv" path="res://Scenes/mechanics/linha_duplicadora.tscn" id="24_raj38"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvhu1"]
 radius = 219.2282

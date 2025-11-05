@@ -28,6 +28,7 @@ SfxManager="*res://Scenes/autoload/sfx_manager.tscn"
 HitFreeze="*res://Scenes/autoload/hit_freeze.tscn"
 MouseCursorController="*res://Scenes/autoload/mouse_cursor_controller.tscn"
 ShockwaveSpawner="*res://Scenes/autoload/shockwave_spawner.tscn"
+DuplicateCats="*res://Scenes/autoload/duplicate_cats.tscn"
 
 [display]
 

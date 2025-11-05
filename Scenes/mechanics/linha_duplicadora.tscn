@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://rbsky2n1tifv"]
 
 [ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="1_4diu0"]
-[ext_resource type="Script" uid="uid://b21mgxnwx2erj" path="res://Scripts/juice/linha_duplicadora.gd" id="1_435qg"]
+[ext_resource type="Script" uid="uid://b21mgxnwx2erj" path="res://Scripts/mechanics/linha_duplicadora.gd" id="1_435qg"]
 [ext_resource type="Texture2D" uid="uid://dpaa0jc8murra" path="res://Assets/Provisorio/dotted line.png" id="2_435qg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0vto"]
