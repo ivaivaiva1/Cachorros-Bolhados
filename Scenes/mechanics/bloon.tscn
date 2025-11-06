@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1bqxohsmdbsv"]
+
+[ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="1_r4y1g"]
+[ext_resource type="Script" uid="uid://bfsepm7fh8s5b" path="res://Scripts/mechanics/bloon.gd" id="1_s22ws"]
+[ext_resource type="Texture2D" uid="uid://dwv5hxbjwyrmm" path="res://Assets/Provisorio/planet.png" id="2_s22ws"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jf1l"]
+shader = ExtResource("1_r4y1g")
+shader_parameter/flash_color = Color(1, 0.39, 0.48149973, 1)
+shader_parameter/flash_pct = 0.63200003002
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s22ws"]
+radius = 102.0049
+
+[node name="Bloon" type="CharacterBody2D" groups=["trampolim"]]
+position = Vector2(980, 544)
+script = ExtResource("1_s22ws")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 2
+material = SubResource("ShaderMaterial_3jf1l")
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("2_s22ws")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["trampolim"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["trampolim"]]
+position = Vector2(-6, -1)
+shape = SubResource("CircleShape2D_s22ws")

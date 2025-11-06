@@ -11,8 +11,8 @@ var sprite_mat
 var original_color: Color = Color("#ff52bf")
 var can_duplicate: bool = false
 var times_to_move: int = 4
-var max_y: float = 250
-var min_y: float = 100
+var max_y: float = 200
+var min_y: float = 200
 var tween_time: float = 6.0
 var wait_time: float = 1.0
 

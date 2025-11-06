@@ -15,6 +15,11 @@ func _ready() -> void:
 	sleeping = true
 	gravity_scale = 0.0
 	shader_mat = sprite.material
+	
+	
+	contact_monitor = true
+	max_contacts_reported = 4
+	connect("body_entered", Callable(self, "_on_body_entered"))
 
 
 func jump():
@@ -35,12 +40,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			return
 		GameManager.icon_container.add_icon(dog_id)
 
-#func start_phantom_tween() -> void:
-	#if sprite == null:
-		#print("⚠️ sprite é null em", name)
-		#return
-	#
-	#var tween = create_tween()
-	#tween.tween_property(sprite, "scale", Vector2.ZERO, 0.5)\
-		#.set_trans(Tween.TRANS_SINE)\
-		#.set_ease(Tween.EASE_IN)
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("trampolim"):
+		# vetor do trampolim até o cachorro
+		var dir = (global_position - body.global_position).normalized()
+		# aplica impulso contrário a essa direção
+		apply_central_impulse(dir * 100)
+		print("💥 Colidiu com trampolim! Dir:", dir)
+		
+		var bloon: Bloon = body.get_parent()
+		bloon.get_hit()

@@ -33,12 +33,12 @@ func do_duplication(cachorros: Cachorros, dog_id: int, dog_pos: Vector2, dog_vel
 		dog_pos2 = global_position
 
 	await get_tree().create_timer(0.2).timeout
-	create_two_copies(dog_id, dog_pos2, dog_velocity, dog_rotation, dog_multi)
+	copy_cat(dog_id, dog_pos2, dog_velocity, dog_rotation, dog_multi)
 
 	tween.finished.connect(func(): cachorros.queue_free())
 
 
-func create_two_copies(dog_id: int, spawn_position: Vector2, inherit_velocity: Vector2, inherit_rotation: float, dog_multi: int) -> void:
+func copy_cat(dog_id: int, spawn_position: Vector2, inherit_velocity: Vector2, inherit_rotation: float, dog_multi: int) -> void:
 	var dog_scene: PackedScene = DogsList.dog_scenes[dog_id]
 	SfxManager.play_sfx(SFX_DUPLICATE, -6)
 	var lateral_speed: float = 200
