@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsyg0imqqcuv"]
+
+[ext_resource type="Script" uid="uid://btlig8l58hrj3" path="res://Scripts/juice/cat_explosion.gd" id="1_2w81g"]
+[ext_resource type="PackedScene" uid="uid://cbjkejexexgc" path="res://Scenes/dogs/cachorro_0.tscn" id="2_2w81g"]
+
+[node name="cat_explosion" type="Node2D"]
+script = ExtResource("1_2w81g")
+
+[node name="cachorro_0" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-85, 0)
+
+[node name="cachorro_1" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-72, -35)
+
+[node name="cachorro_2" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-45, -63)
+
+[node name="cachorro_3" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-8, -78)
+
+[node name="cachorro_4" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(30, -68)
+
+[node name="cachorro_5" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(63, -39)
+
+[node name="cachorro_6" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(78, 3)
+
+[node name="cachorro_7" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(63, 41)
+
+[node name="cachorro_8" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(33, 69)
+
+[node name="cachorro_9" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-9, 81)
+
+[node name="cachorro_10" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-46, 70)
+
+[node name="cachorro_11" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-75, 42)
+
+[node name="cachorro_12" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-18, -9)
+
+[node name="cachorro_13" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(18, -10)
+
+[node name="cachorro_14" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(19, 23)
+
+[node name="cachorro_15" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-15, 24)
+
+[node name="cachorro_16" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-53, 6)
+
+[node name="cachorro_17" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-37, -28)
+
+[node name="cachorro_18" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-6, -42)
+
+[node name="cachorro_19" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(28, -38)
+
+[node name="cachorro_20" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(50, -7)
+
+[node name="cachorro_21" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(39, 28)
+
+[node name="cachorro_22" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(12, 50)
+
+[node name="cachorro_23" parent="." instance=ExtResource("2_2w81g")]
+position = Vector2(-33, 49)

@@ -1,9 +1,11 @@
 extends CharacterBody2D
 class_name Bloon
 
+@export var cat_explosion_scene: PackedScene
 @onready var sprite: Sprite2D = %Sprite
 @onready var fly_speed: float = 16.0
 
+var life: int = 20
 var _breathing_tween: Tween = null
 var _base_scale: Vector2
 
@@ -51,8 +53,9 @@ func start_breathing() -> void:
 	_breathing_tween.tween_property(self, "scale", _base_scale * scale_max, breath_time)
 	_breathing_tween.tween_property(self, "scale", _base_scale * scale_min, breath_time * 1.5)
 
-
 func get_hit() -> void:
+	lose_life()
+	
 	var mat := sprite.material
 	if not (mat is ShaderMaterial):
 		return
@@ -96,6 +99,22 @@ func get_hit() -> void:
 		t.tween_property(sprite, "scale", seq[i], dur)
 	
 	t.tween_property(sprite, "scale", s, 0.15)
+
+
+func lose_life():
+	life -= 1
+	if life <= 0:
+		die()
+
+@onready var static_body: StaticBody2D = %StaticBody2D
+
+func die():
+	static_body.queue_free()
+	sprite.visible = false
+	var cat_explosion: Node2D = cat_explosion_scene.instantiate()
+	cat_explosion.global_position = global_position
+	get_tree().current_scene.add_child(cat_explosion)
+
 
 var movement_tween: Tween
 var tween_duration: float = 8.0

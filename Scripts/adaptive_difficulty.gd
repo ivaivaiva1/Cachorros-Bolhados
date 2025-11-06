@@ -4,6 +4,7 @@ extends Node
 @export var max_difficulty: float = 20.0
 @export var base_growth_rate: float = 0.05       # Crescimento fixo base por segundo
 @export var initial_bonus_growth: float = 0.001  # Antes de perder o primeiro cachorro
+#@export var initial_bonus_growth: float = 1  # Antes de perder o primeiro cachorro
 @export var normal_bonus_growth: float = 0.0003  # Depois da primeira perda
 @export var difficulty_loss_cooldown: float = 0.0  # Tempo mínimo entre reduções de dificuldade (segundos)
 
