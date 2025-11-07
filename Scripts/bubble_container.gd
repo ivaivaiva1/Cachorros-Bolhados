@@ -8,7 +8,7 @@ class_name bubble_containers
 @onready var bubble_moviment: bubble_moviment = %bubble_moviment
 @onready var anim_player: AnimationPlayer = %AnimationPlayer
 @onready var bubble_object: Object = %bolha
-@onready var bubble_audio: AudioStreamPlayer2D = %BubbleAudio
+
 
 var is_alive: bool = true
 var auto_kill_timer := 1.0
@@ -46,16 +46,12 @@ func pop():
 	if !is_alive:
 		return
 	is_alive = false
-
 	var bubble_pos = global_position
 	var mouse_pos = get_global_mouse_position()
-
 	ScreenShake.screen_shake(1.5, 0.2)
-	bubble_audio.play()
-
+	pop_audio()
 	anim_player.set_speed_scale(0.0)
 	bubble_object.queue_free()
-
 	var instance = catioro_scene.instantiate()
 	get_parent().add_child(instance)
 	instance.rotation_degrees = rotation_degrees
@@ -63,3 +59,6 @@ func pop():
 	instance.set_free()
 	catioro.visible = false
 	GameManager.actual_score += 1
+
+func pop_audio():
+	SfxManager.play_sfx(SOUNDS_LIST.get_random_bubble())

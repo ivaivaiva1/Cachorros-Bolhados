@@ -23,7 +23,7 @@ func do_mouse_wave() -> void:
 	var shape: CircleShape2D = collision_shape.shape as CircleShape2D
 	var radius: float = shape.radius
 	
-	SfxManager.play_sfx(SFX_BUMP, -2)
+	SfxManager.play_sfx(SOUNDS_LIST.MOUSEBULLET_SFX)
 	ScreenShake.screen_shake(3, 0.2)
 	#ShockwaveSpawner.do_shockwave(mouse_pos)
 	

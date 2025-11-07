@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://bdshlfutd7xrd" path="res://Scripts/bubble_moviment.gd" id="4_cdlxg"]
 [ext_resource type="PackedScene" uid="uid://bijks5lgm05lq" path="res://Scenes/dogs/cachorro_2.tscn" id="5_26cto"]
 [ext_resource type="Script" uid="uid://07cbmo44hkp5" path="res://Scripts/bubble_rotation.gd" id="5_monmj"]
-[ext_resource type="AudioStream" uid="uid://djcf40yehn2lj" path="res://Audio/som_de_bolha_1.mp3" id="6_1hdmg"]
-[ext_resource type="AudioStream" uid="uid://cydn8vngltban" path="res://Audio/som_de_bolha_2.mp3" id="7_r3mhj"]
-[ext_resource type="AudioStream" uid="uid://cjyrq2ykoyis3" path="res://Audio/som_de_bolha_3.mp3" id="8_k87ge"]
-[ext_resource type="AudioStream" uid="uid://cx78vjayxu723" path="res://Audio/som_de_bolha_4.mp3" id="9_vs53j"]
+[ext_resource type="AudioStream" uid="uid://djcf40yehn2lj" path="res://Audio/Dredge/bubble01_sfx.mp3" id="6_1hdmg"]
+[ext_resource type="AudioStream" uid="uid://cydn8vngltban" path="res://Audio/Dredge/bubble02_sfx.mp3" id="7_r3mhj"]
+[ext_resource type="AudioStream" uid="uid://cjyrq2ykoyis3" path="res://Audio/Dredge/bubble03_sfx.mp3" id="8_k87ge"]
+[ext_resource type="AudioStream" uid="uid://cx78vjayxu723" path="res://Audio/Dredge/bubble04_sfx.mp3" id="9_vs53j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_geipt"]
 radius = 41.1554

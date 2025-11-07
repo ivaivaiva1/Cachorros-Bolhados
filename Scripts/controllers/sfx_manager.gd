@@ -1,27 +1,33 @@
 extends Node
 
-# Dicionário com os sons carregados (opcional, pra performance)
+# Cache dos sons carregados
 var sounds: Dictionary = {}
 
-# Mixer global para todos os SFX
-@export var base_bus := "SFX"  # opcional, se quiser enviar pra um AudioBus específico
+# Mixer global (bus) — opcional
+@export var base_bus := "SFX"
 
-func play_sfx(sound_path: String, volume_db: float = 0.0) -> void:
-	# Verifica se já temos o som carregado
-	var audio_stream: AudioStream
-	if sound_path in sounds:
-		audio_stream = sounds[sound_path]
-	else:
-		audio_stream = load(sound_path)
-		sounds[sound_path] = audio_stream
+func play_sfx(sound_data: Dictionary) -> void:
+	if not sound_data or not sound_data.has("stream"):
+		push_error("SFX_Manager.play(): som inválido (faltando 'stream').")
+		return
 	
-	# Cria um AudioStreamPlayer2D temporário (ou 3D se quiser espacial)
+	var stream: AudioStream = sound_data["stream"]
+	var volume: float = sound_data.get("volume", 0.0)
+
+	# Caching opcional — útil se o stream não for preloaded
+	var path := stream.resource_path
+	if path != "" and not sounds.has(path):
+		sounds[path] = stream
+	elif path != "":
+		stream = sounds[path]
+
+	# Cria player temporário
 	var player := AudioStreamPlayer.new()
-	player.stream = audio_stream
-	player.volume_db = volume_db
+	player.stream = stream
+	player.volume_db = volume
 	player.bus = base_bus
 	add_child(player)
-	
-	# Toca e destrói depois que terminar
+
+	# Toca e libera ao terminar
 	player.play()
 	player.finished.connect(func(): player.queue_free())

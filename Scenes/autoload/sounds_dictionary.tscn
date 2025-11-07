@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcj0oyaeo0hdy"]
+
+[ext_resource type="Script" uid="uid://l3m051qepxpq" path="res://Scripts/controllers/sounds_dictionary.gd" id="1_s5b5h"]
+
+[node name="Sounds_Dictionary" type="Node"]
+script = ExtResource("1_s5b5h")

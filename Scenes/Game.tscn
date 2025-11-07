@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d2cj22y8bkni4"]
+[gd_scene load_steps=33 format=3 uid="uid://d2cj22y8bkni4"]
 
 [ext_resource type="Script" uid="uid://dnjf0fgnvuhy1" path="res://Scripts/background.gd" id="1_ewpxn"]
 [ext_resource type="Script" uid="uid://ddrasymxcaq5j" path="res://Scripts/game.gd" id="1_o3eg0"]
@@ -24,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="21_rajel"]
 [ext_resource type="PackedScene" uid="uid://d1bqxohsmdbsv" path="res://Scenes/mechanics/bloon.tscn" id="24_8e0uq"]
 [ext_resource type="PackedScene" uid="uid://rbsky2n1tifv" path="res://Scenes/mechanics/linha_duplicadora.tscn" id="24_raj38"]
+[ext_resource type="Script" uid="uid://fobwgtmg0ajp" path="res://Scripts/controllers/event_spawner_prov.gd" id="25_8e0uq"]
+[ext_resource type="PackedScene" uid="uid://bgwmxpcndenmw" path="res://Scenes/mechanics/basket.tscn" id="26_i0vto"]
+[ext_resource type="Texture2D" uid="uid://0ql51epntqdd" path="res://Assets/Provisorio/robotnik.png" id="27_3jf1l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvhu1"]
 radius = 219.2282
@@ -464,11 +467,25 @@ scale = Vector2(3.785, 3.785)
 [node name="Linha Duplicadora" parent="." instance=ExtResource("24_raj38")]
 position = Vector2(0, 200)
 
-[node name="Bloon" parent="." instance=ExtResource("24_8e0uq")]
-position = Vector2(707, 509)
+[node name="Event_Spawner_Prov" type="Node2D" parent="." node_paths=PackedStringArray("basket_father")]
+script = ExtResource("25_8e0uq")
+bloon_scene = ExtResource("24_8e0uq")
+basket_father = NodePath("../Basket_FATHER")
+
+[node name="Basket_FATHER" type="Node2D" parent="."]
+position = Vector2(10000, 10000)
+
+[node name="Basket" parent="Basket_FATHER" instance=ExtResource("26_i0vto")]
+position = Vector2(433, 454)
+
+[node name="Basket2" parent="Basket_FATHER" instance=ExtResource("26_i0vto")]
+position = Vector2(933, 204)
+
+[node name="Robotnik" type="Sprite2D" parent="."]
+position = Vector2(651, 132)
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("27_3jf1l")
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]
 [connection signal="button_down" from="game_over_ui/play_again" to="." method="_on_play_again_button_down"]
 [connection signal="button_down" from="game_over_ui/main_menu" to="." method="_on_main_menu_button_down"]
-
-[editable path="Bloon"]

@@ -40,7 +40,7 @@ func do_duplication(cachorros: Cachorros, dog_id: int, dog_pos: Vector2, dog_vel
 
 func copy_cat(dog_id: int, spawn_position: Vector2, inherit_velocity: Vector2, inherit_rotation: float, dog_multi: int) -> void:
 	var dog_scene: PackedScene = DogsList.dog_scenes[dog_id]
-	SfxManager.play_sfx(SFX_DUPLICATE, -6)
+	SfxManager.play_sfx(SOUNDS_LIST.DUPLICATE_SFX)
 	var lateral_speed: float = 200
 	
 	for i in range(dog_multi):

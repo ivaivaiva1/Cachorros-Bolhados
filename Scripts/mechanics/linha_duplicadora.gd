@@ -53,7 +53,7 @@ func do_move() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("test"):
+	if Input.is_action_just_pressed("invoke_linha_duplicadora"):
 		start()
 
 
@@ -121,6 +121,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			
 			DuplicateCats.do_duplication(cachorros, dog_id, dog_pos, dog_velocity, dog_rotation, multiplier)
 			
-			SfxManager.play_sfx(SFX_COIN, -4)
+			SfxManager.play_sfx(SOUNDS_LIST.COIN_SFX)
 			SpawnText.display_text(str("X", multiplier), dog_pos, original_color)
 			HitFreeze.hit_freeze(0.3, 0.015)

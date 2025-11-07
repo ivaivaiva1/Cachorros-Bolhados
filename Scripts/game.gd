@@ -8,7 +8,7 @@ extends Node2D
 @onready var adaptive_difficulty_controller = %AdaptiveDifficulty
 @onready var bubble_spawner_controller = %BubbleSpawner
 
-var SFX_Death = "res://Audio/Dredge/boss-burnt.wav"
+var SFX_Death = "res://Audio/Dredge/SUB_DROP_DEEP.wav"
 
 func _ready() -> void:
 	GameManager.game_state = "Play"
@@ -28,20 +28,13 @@ func _process(delta: float) -> void:
 func _on_game_over_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bubble"):
 		#GameManager.icon_container.add_icon(1)
-		SfxManager.play_sfx(SFX_Death, 0)
+		SfxManager.play_sfx(SOUNDS_LIST.CATLOST_SFX)
 		ScreenShake.screen_shake(10, 0.7)
 		adaptive_difficulty_controller.on_dog_escaped()
 		bubble_spawner_controller.destroy_all_bubbles()
 		area.queue_free()
-	#if area.is_in_group("bubble"):
-		##if GameManager.actual_score > SaveScore.easy_score:
-			##SaveScore.easy_score = GameManager.actual_score
-		##SaveScore.save_score()
-		#game_over_ui.visible = true
-		#score_label.text = str(GameManager.actual_score)
-		##recorde_label.text = str(SaveScore.load_score())
-		#game_mode_label.text = GameManager.game_mode
-		#GameManager.game_state = "GameOver"
+	if area.is_in_group("trampolim"):
+		area.queue_free()
 
 
 func _on_play_again_button_down() -> void:

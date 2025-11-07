@@ -20,12 +20,13 @@ func apply_explosion() -> void:
 
 	# aplica a força e o torque
 	for cat in cats:
+		
 		var cachorro: Cachorros = cat
 		cachorro.set_free()
 		
 		var dir = (cat.global_position - global_position).normalized()
 		cat.linear_velocity = dir * force_strength
-
+		
 		# torque baseado na direção do empurrão
 		var torque_from_push = clamp(dir.x * torque_multiplier * force_strength, -torque_limit, torque_limit)
 		cat.apply_torque_impulse(torque_from_push)

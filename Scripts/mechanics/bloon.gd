@@ -5,17 +5,24 @@ class_name Bloon
 @onready var sprite: Sprite2D = %Sprite
 @onready var fly_speed: float = 16.0
 
-var life: int = 20
+var life: float = 10
 var _breathing_tween: Tween = null
 var _base_scale: Vector2
 
 var original_flash_color: Color = Color("ff637b")
 var original_flash_pct: float = 0.632
 
+var damage_alto: float = 1.0
+var damage_medium: float = 0.3
+var damage_low: float = 0.1
+
 # rotation vars
 @onready var initial_rotation: float = randf_range(0.0, 360.0)
 @onready var rotation_direction: int = 1
 @onready var rotation_speed: float = 3
+
+
+var SFX_Estouro = "res://Audio/Bloons/31_Pop1.mp3"
 
 
 
@@ -53,8 +60,20 @@ func start_breathing() -> void:
 	_breathing_tween.tween_property(self, "scale", _base_scale * scale_max, breath_time)
 	_breathing_tween.tween_property(self, "scale", _base_scale * scale_min, breath_time * 1.5)
 
+func lose_life():
+	if global_position.y < 384.0:
+		life -= damage_alto
+	elif global_position.y < 576.0:
+		life -= damage_medium
+	else:
+		life -= damage_low
+
 func get_hit() -> void:
 	lose_life()
+	if life <= 0:
+		die()
+		return
+	
 	
 	var mat := sprite.material
 	if not (mat is ShaderMaterial):
@@ -83,7 +102,7 @@ func get_hit() -> void:
 		mat.set_shader_parameter("flash_color", Color.WHITE.lerp(original_flash_color, v))
 		mat.set_shader_parameter("flash_pct", lerp(1.0, original_flash_pct, v))
 	, 0.0, 1.0, 0.12*1)
-
+	
 	# --- MOLA / IMPACTO ---
 	var s := _base_scale
 	var seq := [
@@ -101,19 +120,16 @@ func get_hit() -> void:
 	t.tween_property(sprite, "scale", s, 0.15)
 
 
-func lose_life():
-	life -= 1
-	if life <= 0:
-		die()
-
 @onready var static_body: StaticBody2D = %StaticBody2D
 
 func die():
+	SfxManager.play_sfx(SOUNDS_LIST.BLOONEXPLODE_SFX)
 	static_body.queue_free()
 	sprite.visible = false
 	var cat_explosion: Node2D = cat_explosion_scene.instantiate()
 	cat_explosion.global_position = global_position
 	get_tree().current_scene.add_child(cat_explosion)
+	queue_free()
 
 
 var movement_tween: Tween

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/28_Pop4.mp3-8dcb7b2630c3b7e4ba3377e31356d6df.
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

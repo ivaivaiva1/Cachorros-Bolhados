@@ -52,7 +52,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			var dog_multi = multiplier
 			DuplicateCats.do_duplication(cachorros, dog_id, dog_pos, dog_velocity, dog_rotation, dog_multi)
 			
-			SfxManager.play_sfx(SFX_COIN, -4)
+			SfxManager.play_sfx(SOUNDS_LIST.COIN_SFX)
 			SpawnText.display_text(str("X", dog_multi), dog_pos)
 			HitFreeze.hit_freeze(0.3, 0.015)
 

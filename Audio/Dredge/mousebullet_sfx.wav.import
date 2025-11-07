@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://y2gcc5s6q4no"
-path="res://.godot/imported/bullet.wav-508814f6c296308a98797635d4fbb5ae.sample"
+path="res://.godot/imported/mousebullet_sfx.wav-361140e5e0587d0243b9da3146ba232b.sample"
 
 [deps]
 
-source_file="res://Audio/Dredge/bullet.wav"
-dest_files=["res://.godot/imported/bullet.wav-508814f6c296308a98797635d4fbb5ae.sample"]
+source_file="res://Audio/Dredge/mousebullet_sfx.wav"
+dest_files=["res://.godot/imported/mousebullet_sfx.wav-361140e5e0587d0243b9da3146ba232b.sample"]
 
 [params]
 
