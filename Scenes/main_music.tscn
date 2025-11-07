@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bnilsueapih7w"]
 
-[ext_resource type="AudioStream" uid="uid://dl23kjd8nuaen" path="res://Audio/Dredge/Heavy Heads - Romain Gauthier (youtube).mp3" id="1_8y60d"]
+[ext_resource type="AudioStream" uid="uid://dl23kjd8nuaen" path="res://Audio/Dredge/level01_music.mp3" id="1_8y60d"]
 
 [node name="Main Music" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_8y60d")

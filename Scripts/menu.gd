@@ -1,5 +1,9 @@
 extends Node2D
 
+func _ready() -> void:
+	MusicManager.play_instant(SOUNDS_LIST.LEVEL01_MUSIC)
+
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("auto_play"):
 		if GameManager.auto_play == true:
