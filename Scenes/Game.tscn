@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cmld782ijgd4y" path="res://Scenes/icons/icon_4.tscn" id="18_tc81j"]
 [ext_resource type="PackedScene" uid="uid://dpyy4hyl0syt1" path="res://Scenes/icons/icon_5.tscn" id="19_8bqg7"]
 [ext_resource type="AudioStream" uid="uid://dci3r6ht0wk2n" path="res://Audio/cats game/322533__fran89__bongo.wav" id="19_lbihj"]
+[ext_resource type="Script" uid="uid://dwa0pma3q7co1" path="res://Scripts/utillity/game_over_area.gd" id="20_356ba"]
 [ext_resource type="Script" uid="uid://i48va3nvsjfq" path="res://Scripts/adaptive_difficulty.gd" id="20_raj38"]
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="21_rajel"]
 [ext_resource type="PackedScene" uid="uid://d1bqxohsmdbsv" path="res://Scenes/mechanics/bloon.tscn" id="24_8e0uq"]
@@ -41,9 +42,6 @@ font_size = 70
 font_size = 36
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rajel"]
-size = Vector2(128.32904, 129.09448)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o3eg0")
@@ -158,6 +156,7 @@ shape = SubResource("RectangleShape2D_f3cqs")
 
 [node name="GameOverArea" type="Area2D" parent="." groups=["game_over"]]
 position = Vector2(0, -1239)
+script = ExtResource("20_356ba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverArea"]
 position = Vector2(695, 1047)
@@ -240,34 +239,6 @@ offset_right = 400.0
 offset_bottom = 92.0
 text = "Adaptive Difficulty = 10"
 label_settings = SubResource("LabelSettings_raj38")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(334.00003, 458)
-rotation = 0.71191084
-scale = Vector2(3.2109375, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("21_rajel")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.15020752, -0.15777588)
-shape = SubResource("RectangleShape2D_rajel")
-disabled = true
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(933.00006, 468.00003)
-rotation = -0.77529854
-scale = Vector2(3.2109375, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-texture = ExtResource("21_rajel")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-0.15020752, -0.15777588)
-shape = SubResource("RectangleShape2D_rajel")
-disabled = true
 
 [node name="dog icons" type="Node2D" parent="."]
 visible = false
@@ -482,10 +453,10 @@ position = Vector2(433, 454)
 position = Vector2(933, 204)
 
 [node name="Robotnik" type="Sprite2D" parent="."]
-position = Vector2(651, 132)
+position = Vector2(-138, 91)
 scale = Vector2(1.22, 1.22)
 texture = ExtResource("27_3jf1l")
 
-[connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="GameOverArea" to="GameOverArea" method="_on_area_entered"]
 [connection signal="button_down" from="game_over_ui/play_again" to="." method="_on_play_again_button_down"]
 [connection signal="button_down" from="game_over_ui/main_menu" to="." method="_on_main_menu_button_down"]

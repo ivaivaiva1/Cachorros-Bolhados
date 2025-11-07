@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	contact_monitor = true
 	max_contacts_reported = 4
-	connect("body_entered", Callable(self, "_on_body_entered"))
+	#connect("body_entered", Callable(self, "_on_body_entered"))
 
 
 func jump():

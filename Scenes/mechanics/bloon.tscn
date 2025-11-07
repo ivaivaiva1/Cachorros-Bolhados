@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1bqxohsmdbsv"]
+[gd_scene load_steps=8 format=3 uid="uid://d1bqxohsmdbsv"]
 
 [ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="1_r4y1g"]
 [ext_resource type="Script" uid="uid://bfsepm7fh8s5b" path="res://Scripts/mechanics/bloon.gd" id="1_s22ws"]
@@ -12,6 +12,9 @@ shader_parameter/flash_pct = 0.63200003002
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s22ws"]
 radius = 102.0049
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lugb3"]
+radius = 41.01219
 
 [node name="Bloon" type="CharacterBody2D" groups=["trampolim"]]
 script = ExtResource("1_s22ws")
@@ -31,3 +34,9 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["trampolim"]]
 position = Vector2(-6, -1)
 shape = SubResource("CircleShape2D_s22ws")
+
+[node name="Area2D" type="Area2D" parent="." groups=["trampolim"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, 1)
+shape = SubResource("CircleShape2D_lugb3")

@@ -38,8 +38,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_button_down() -> void:
-	if GameManager.game_state == "Play" or GameManager.game_state == "Menu":
-		pop()
+	pop()
 
 func pop():
 	print("actual_pos: ", global_position, "|| auto_destruction_y: ",auto_destruction_y)
@@ -58,7 +57,7 @@ func pop():
 	instance.global_position = bubble_pos
 	instance.set_free()
 	catioro.visible = false
-	GameManager.actual_score += 1
+	GameManager.game.actual_score += 1
 
 func pop_audio():
 	SfxManager.play_sfx(SOUNDS_LIST.get_random_bubble())

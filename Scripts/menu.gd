@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	GameManager.current_scene = GameManager.SCENES.MENU
 	MusicManager.play_instant(SOUNDS_LIST.LEVEL01_MUSIC)
 
 
@@ -13,7 +14,6 @@ func _process(delta: float) -> void:
 
 
 func _on_easy_button_button_down() -> void:
-	GameManager.game_mode = "Fácil"
 	GameManager.spawn_cooldown = 0.7
 	GameManager.fly_speed = 300
 	GameManager.tween_duration = 2.5

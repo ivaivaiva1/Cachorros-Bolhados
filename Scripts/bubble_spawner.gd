@@ -15,25 +15,25 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if GameManager.game_state != "Play":
-		return
-
+	if GameManager.current_scene != GameManager.SCENES.GAME: return
+	if GameManager.game.game_state != GameManager.game.GAME_STATE.FARM: return
+	
 	# --- Calcula cooldown baseado na dificuldade adaptativa ---
 	var difficulty = clamp(GameManager.adaptive_difficulty, 0.0, 20.0)
 	var spawn_cooldown: float
-
+	
 	if difficulty <= 10.0:
 		spawn_cooldown = lerp(1.0, 0.3, difficulty / 10.0)
 	else:
 		spawn_cooldown = lerp(0.3, 0.1, (difficulty - 10.0) / 10.0)
-
+	
 	# --- Timer de spawn ---
 	if spawn_timer > 0:
 		spawn_timer -= delta
 	else:
 		spawn_bubble()
 		spawn_timer = spawn_cooldown
-
+	
 	# --- Atualiza label ---
 	if label:
 		label.text = "Spawn cooldown: %.2f s | Timer: %.2f s | Bolhas: %d" % [
