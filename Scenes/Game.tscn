@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2cj22y8bkni4"]
+[gd_scene load_steps=27 format=3 uid="uid://d2cj22y8bkni4"]
 
 [ext_resource type="Script" uid="uid://dnjf0fgnvuhy1" path="res://Scripts/background.gd" id="1_ewpxn"]
 [ext_resource type="Script" uid="uid://ddrasymxcaq5j" path="res://Scripts/game.gd" id="1_o3eg0"]
@@ -8,10 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b1suerugb57vq" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/5.png" id="5_0vdv6"]
 [ext_resource type="Script" uid="uid://cvmy646hiblp1" path="res://Scripts/bubble_spawner.gd" id="6_xta46"]
 [ext_resource type="PackedScene" uid="uid://cili3i8us0yag" path="res://Scenes/bubbles/bubble_container_1.tscn" id="7_k5rfa"]
-[ext_resource type="Texture2D" uid="uid://6j52u1i0ussi" path="res://HUD 2/BoxDogs.png" id="13_lx0ty"]
-[ext_resource type="Texture2D" uid="uid://p2ycm3baflxn" path="res://HUD 2/JogarNovamente.png" id="14_4txr5"]
 [ext_resource type="Script" uid="uid://d3j0rsmox5yrs" path="res://Scripts/icons_container.gd" id="14_u7mvg"]
-[ext_resource type="Texture2D" uid="uid://cyq6ityjcsvpf" path="res://HUD 2/Menu Principal.png" id="15_1y8g8"]
 [ext_resource type="PackedScene" uid="uid://b0hwdr1gjhyvr" path="res://Scenes/icons/icon_1.tscn" id="15_665my"]
 [ext_resource type="PackedScene" uid="uid://c0ohj25gpla2f" path="res://Scenes/icons/icon_gold_new.tscn" id="15_lbihj"]
 [ext_resource type="PackedScene" uid="uid://rtcmdufu80u6" path="res://Scenes/icons/icon_2.tscn" id="16_jgue8"]
@@ -19,7 +16,6 @@
 [ext_resource type="Script" uid="uid://ckcxpas62kb8q" path="res://Scripts/mechanics/mouse_wave.gd" id="17_lbihj"]
 [ext_resource type="PackedScene" uid="uid://cmld782ijgd4y" path="res://Scenes/icons/icon_4.tscn" id="18_tc81j"]
 [ext_resource type="PackedScene" uid="uid://dpyy4hyl0syt1" path="res://Scenes/icons/icon_5.tscn" id="19_8bqg7"]
-[ext_resource type="AudioStream" uid="uid://dci3r6ht0wk2n" path="res://Audio/cats game/322533__fran89__bongo.wav" id="19_lbihj"]
 [ext_resource type="Script" uid="uid://dwa0pma3q7co1" path="res://Scripts/utillity/game_over_area.gd" id="20_356ba"]
 [ext_resource type="Script" uid="uid://i48va3nvsjfq" path="res://Scripts/adaptive_difficulty.gd" id="20_raj38"]
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="21_rajel"]
@@ -27,16 +23,12 @@
 [ext_resource type="PackedScene" uid="uid://rbsky2n1tifv" path="res://Scenes/mechanics/linha_duplicadora.tscn" id="24_raj38"]
 [ext_resource type="Script" uid="uid://fobwgtmg0ajp" path="res://Scripts/controllers/event_spawner_prov.gd" id="25_8e0uq"]
 [ext_resource type="PackedScene" uid="uid://bgwmxpcndenmw" path="res://Scenes/mechanics/basket.tscn" id="26_i0vto"]
-[ext_resource type="Texture2D" uid="uid://0ql51epntqdd" path="res://Assets/Provisorio/robotnik.png" id="27_3jf1l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvhu1"]
 radius = 219.2282
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3cqs"]
 size = Vector2(3718, 176)
-
-[sub_resource type="LabelSettings" id="LabelSettings_s2lrp"]
-font_size = 70
 
 [sub_resource type="LabelSettings" id="LabelSettings_raj38"]
 font_size = 36
@@ -136,11 +128,6 @@ modulate = Color(1, 1, 1, 0.2901961)
 scale = Vector2(1.6875, 1.6875)
 texture = ExtResource("21_rajel")
 
-[node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("19_lbihj")
-volume_db = 4.903
-
 [node name="KillDogsArea" type="Area2D" parent="." groups=["death"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillDogsArea"]
@@ -161,69 +148,6 @@ script = ExtResource("20_356ba")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverArea"]
 position = Vector2(695, 1047)
 shape = SubResource("RectangleShape2D_f3cqs")
-
-[node name="game_over_ui" type="Control" parent="."]
-unique_name_in_owner = true
-visible = false
-z_index = 100
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BoxDogs" type="Sprite2D" parent="game_over_ui"]
-position = Vector2(685, 377)
-texture = ExtResource("13_lx0ty")
-
-[node name="actual_score" type="Label" parent="game_over_ui"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 201.0
-offset_top = 170.0
-offset_right = 1153.0
-offset_bottom = 437.0
-text = "1500"
-label_settings = SubResource("LabelSettings_s2lrp")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="game_mode" type="Label" parent="game_over_ui"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 201.0
-offset_top = 244.0
-offset_right = 1153.0
-offset_bottom = 511.0
-text = "game_mode"
-label_settings = SubResource("LabelSettings_s2lrp")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="JogarNovamente" type="Sprite2D" parent="game_over_ui"]
-position = Vector2(461, 537)
-texture = ExtResource("14_4txr5")
-
-[node name="MenuPrincipal" type="Sprite2D" parent="game_over_ui"]
-position = Vector2(925, 534)
-texture = ExtResource("15_1y8g8")
-
-[node name="play_again" type="Button" parent="game_over_ui"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 268.0
-offset_top = 461.0
-offset_right = 658.0
-offset_bottom = 608.0
-text = "Jogar Novamente"
-
-[node name="main_menu" type="Button" parent="game_over_ui"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 725.0
-offset_top = 454.0
-offset_right = 1120.0
-offset_bottom = 608.0
-text = "Menu Principal"
 
 [node name="adaptive difficulty label" type="Label" parent="."]
 visible = false
@@ -452,11 +376,4 @@ position = Vector2(433, 454)
 [node name="Basket2" parent="Basket_FATHER" instance=ExtResource("26_i0vto")]
 position = Vector2(933, 204)
 
-[node name="Robotnik" type="Sprite2D" parent="."]
-position = Vector2(-138, 91)
-scale = Vector2(1.22, 1.22)
-texture = ExtResource("27_3jf1l")
-
 [connection signal="area_entered" from="GameOverArea" to="GameOverArea" method="_on_area_entered"]
-[connection signal="button_down" from="game_over_ui/play_again" to="." method="_on_play_again_button_down"]
-[connection signal="button_down" from="game_over_ui/main_menu" to="." method="_on_main_menu_button_down"]

@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0ohj25gpla2f"]
+[gd_scene load_steps=5 format=3 uid="uid://c0ohj25gpla2f"]
 
-[ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="1_mhkkk"]
+[ext_resource type="Shader" uid="uid://0rrmpeipav2l" path="res://Shaders/glow_shader.gdshader" id="1_mhkkk"]
 [ext_resource type="Texture2D" uid="uid://bp63fcej3u8g1" path="res://Assets/Artes/Cachorro4.png" id="1_r4ma3"]
+[ext_resource type="Script" uid="uid://dwgloteeihjt1" path="res://Scripts/juice/gold_effect_controller.gd" id="3_5ovt2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ovt2"]
 shader = ExtResource("1_mhkkk")
-shader_parameter/flash_color = Color(1, 0.6666667, 0, 1)
-shader_parameter/flash_pct = 0.6870000326325
+shader_parameter/radius = 1.0
+shader_parameter/amount = 0.655
+shader_parameter/flash_color = Color(1, 0.8333334, 0, 1)
+shader_parameter/flash_pct = 0.666000031635
 
 [node name="icon_gold" type="Sprite2D"]
 z_index = -90
@@ -14,3 +17,7 @@ material = SubResource("ShaderMaterial_5ovt2")
 scale = Vector2(0.11, 0.11)
 texture = ExtResource("1_r4ma3")
 offset = Vector2(0, 78.195)
+
+[node name="gold_effect_controller" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_5ovt2")
+sprite = NodePath("..")

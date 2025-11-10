@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbrr2gj1xufju"]
+
+[ext_resource type="Texture2D" uid="uid://0ql51epntqdd" path="res://Assets/Provisorio/robotnik.png" id="1_ahntd"]
+[ext_resource type="Script" uid="uid://dgk4loudff4wp" path="res://Scripts/boss/robotnik.gd" id="1_g4cir"]
+[ext_resource type="PackedScene" uid="uid://bpu3r0affljwe" path="res://Scenes/bullets/bubble_bullet.tscn" id="2_7bt0d"]
+
+[node name="Robotnik" type="Node2D"]
+position = Vector2(705, 143)
+script = ExtResource("1_g4cir")
+bubble_bullet = ExtResource("2_7bt0d")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2.26, 1.549)
+texture = ExtResource("1_ahntd")
+
+[node name="bubble_bullet_pos" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-53, 96)

@@ -25,7 +25,7 @@ func do_mouse_wave() -> void:
 	
 	SfxManager.play_sfx(SOUNDS_LIST.MOUSEBULLET_SFX)
 	ScreenShake.screen_shake(3, 0.2)
-	#ShockwaveSpawner.do_shockwave(mouse_pos)
+	ShockwaveSpawner.do_shockwave(mouse_pos)
 	
 	
 	for area in wave_area.get_overlapping_areas():

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cili3i8us0yag"]
+[gd_scene load_steps=13 format=3 uid="uid://cili3i8us0yag"]
 
 [ext_resource type="Script" uid="uid://bdshlfutd7xrd" path="res://Scripts/bubble_moviment.gd" id="1_g3s32"]
 [ext_resource type="PackedScene" uid="uid://dp7guljax7l4" path="res://Scenes/bubbles/bubble_1.tscn" id="1_wxjet"]
 [ext_resource type="Script" uid="uid://c8ou7y2h6ymm1" path="res://Scripts/bubble_container.gd" id="1_yrsw8"]
 [ext_resource type="PackedScene" uid="uid://cbjkejexexgc" path="res://Scenes/dogs/cachorro_0.tscn" id="2_vq6bb"]
+[ext_resource type="Texture2D" uid="uid://dl0ioyyetx1aa" path="res://Assets/Bubbles/Coloured/128x128/bubble_1.png" id="4_7r0d2"]
 [ext_resource type="Script" uid="uid://07cbmo44hkp5" path="res://Scripts/bubble_rotation.gd" id="4_is866"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ad63q"]
@@ -90,6 +91,8 @@ scale = Vector2(6.3, 6.3)
 
 [node name="Sprite2D" parent="bolha" index="0"]
 z_index = 1001
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_7r0d2")
 
 [node name="Button" parent="bolha" index="1"]
 offset_left = -15.873

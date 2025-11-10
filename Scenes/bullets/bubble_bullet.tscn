@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpu3r0affljwe"]
+
+[ext_resource type="Script" uid="uid://bsfaer05kuvuh" path="res://Scripts/bullets/base_bullet.gd" id="1_evds3"]
+[ext_resource type="Texture2D" uid="uid://dl0ioyyetx1aa" path="res://Assets/Bubbles/Coloured/128x128/bubble_1.png" id="2_7ownx"]
+[ext_resource type="Script" uid="uid://bbcqr0o0yi1jm" path="res://Scripts/bullets/bubble_bullet_behaviour.gd" id="3_7ownx"]
+
+[node name="bubble_bullet" type="CharacterBody2D"]
+rotation = 2.4609141
+script = ExtResource("1_evds3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_7ownx")
+
+[node name="bubble_bullet_behaviour" type="Node2D" parent="."]
+script = ExtResource("3_7ownx")
