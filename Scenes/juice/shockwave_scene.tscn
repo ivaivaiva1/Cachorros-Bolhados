@@ -6,34 +6,65 @@
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
-uniform sampler2D SCREEN_TEXTURE: hint_screen_texture;
-uniform vec2 center;
-uniform float force;
-uniform float size;
-uniform float thickness;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
+uniform vec2 center;     // centro relativo ao ColorRect (0–1)
+uniform float force;     // intensidade da distorção
+uniform float size;      // raio
+uniform float thickness; // espessura do anel
 
 void fragment() {
-    float ratio = SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y;
-    vec2 scaledUV = (SCREEN_UV - vec2(0.5, 0.0)) / vec2(ratio, 1.0) + vec2(0.0, 0.5);
-    float mask = 1.0 - smoothstep(size - 0.1, size, length(scaledUV - center));
-    	smoothstep(size - thickness - 0.1, size - thickness, length(scaledUV - center));
+    // UV agora é relativo ao ColorRect, não à tela
+    vec2 scaledUV = UV;
+
+    // cria o anel suave do efeito
+    float mask = (1.0 - smoothstep(size - 0.1, size, length(scaledUV - center))) *
+        smoothstep(size - thickness - 0.1, size - thickness, length(scaledUV - center));
+
+    // calcula o deslocamento radial
     vec2 disp = normalize(scaledUV - center) * force * mask;
+
+    // aplica a distorção na imagem da tela
     COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
+
+    // debug opcional:
     //COLOR.rgb = vec3(mask);
-}"
+}
+
+
+
+
+//shader_type canvas_item;
+//
+//uniform sampler2D SCREEN_TEXTURE: hint_screen_texture;
+//uniform vec2 center;
+//uniform float force;
+//uniform float size;
+//uniform float thickness;
+//
+//void fragment() {
+    //float ratio = SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y;
+    //vec2 scaledUV = (SCREEN_UV - vec2(0.5, 0.0)) / vec2(ratio, 1.0) + vec2(0.0, 0.5);
+    //float mask = (1.0 - smoothstep(size - 0.1, size, length(scaledUV - center))) *
+    	//smoothstep(size - thickness - 0.1, size - thickness, length(scaledUV - center));
+    //vec2 disp = normalize(scaledUV - center) * force * mask;
+    //COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
+    ////COLOR.rgb = vec3(mask);
+//}"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lujfa"]
 shader = SubResource("Shader_ye4k7")
-shader_parameter/center = Vector2(0, 0)
-shader_parameter/force = 0.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.02
 shader_parameter/size = 0.0
-shader_parameter/thickness = 0.0
+shader_parameter/thickness = 0.25
 
 [node name="shockwave_scene" type="ColorRect"]
 material = SubResource("ShaderMaterial_lujfa")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -926.0
+offset_bottom = -328.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

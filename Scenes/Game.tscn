@@ -24,9 +24,6 @@
 [ext_resource type="Script" uid="uid://fobwgtmg0ajp" path="res://Scripts/controllers/event_spawner_prov.gd" id="25_8e0uq"]
 [ext_resource type="PackedScene" uid="uid://bgwmxpcndenmw" path="res://Scenes/mechanics/basket.tscn" id="26_i0vto"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vvhu1"]
-radius = 219.2282
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3cqs"]
 size = Vector2(3718, 176)
 
@@ -34,6 +31,9 @@ size = Vector2(3718, 176)
 font_size = 36
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vvhu1"]
+radius = 219.2282
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o3eg0")
@@ -110,23 +110,6 @@ icon_gold = ExtResource("15_lbihj")
 [node name="AdaptiveDifficulty" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("20_raj38")
-
-[node name="MouseWave" type="Node2D" parent="."]
-visible = false
-script = ExtResource("17_lbihj")
-
-[node name="wave_area" type="Area2D" parent="MouseWave"]
-unique_name_in_owner = true
-position = Vector2(311, 398)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseWave/wave_area"]
-shape = SubResource("CircleShape2D_vvhu1")
-
-[node name="Sprite2D" type="Sprite2D" parent="MouseWave/wave_area"]
-visible = false
-modulate = Color(1, 1, 1, 0.2901961)
-scale = Vector2(1.6875, 1.6875)
-texture = ExtResource("21_rajel")
 
 [node name="KillDogsArea" type="Area2D" parent="." groups=["death"]]
 
@@ -375,5 +358,22 @@ position = Vector2(433, 454)
 
 [node name="Basket2" parent="Basket_FATHER" instance=ExtResource("26_i0vto")]
 position = Vector2(933, 204)
+
+[node name="MouseWave" type="Node2D" parent="."]
+script = ExtResource("17_lbihj")
+
+[node name="wave_area" type="Area2D" parent="MouseWave"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(311, 398)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseWave/wave_area"]
+shape = SubResource("CircleShape2D_vvhu1")
+
+[node name="Sprite2D" type="Sprite2D" parent="MouseWave/wave_area"]
+visible = false
+modulate = Color(1, 1, 1, 0.2901961)
+scale = Vector2(1.6875, 1.6875)
+texture = ExtResource("21_rajel")
 
 [connection signal="area_entered" from="GameOverArea" to="GameOverArea" method="_on_area_entered"]

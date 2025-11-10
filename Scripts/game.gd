@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	if game_state == GAME_STATE.FARM:
 		farm_time += delta
 		
-		if farm_time > 10:
+		if farm_time > 10000:
 			call_boss()
 	
 	
