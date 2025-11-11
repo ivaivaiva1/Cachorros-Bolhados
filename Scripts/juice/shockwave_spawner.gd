@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 @export var shockwave_scene: PackedScene
 
@@ -7,8 +7,9 @@ func do_shockwave(pos: Vector2):
 		push_error("shockwave_scene não está configurada!")
 		return null
 	
-	var shockwave_instance = shockwave_scene.instantiate()
-	add_child(shockwave_instance)
+	var canvas_layer_instance = shockwave_scene.instantiate()
+	add_child(canvas_layer_instance)
+	var shockwave_instance = canvas_layer_instance.get_node("shockwave_scene")
 	
 	const pos_offset = Vector2(3000.0, 3000.0)
 	shockwave_instance.global_position = pos - pos_offset

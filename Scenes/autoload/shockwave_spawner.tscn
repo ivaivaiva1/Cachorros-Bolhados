@@ -1,11 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ehi4vsv35dx3"]
+[gd_scene load_steps=3 format=3 uid="uid://cibpmt3l3kgyd"]
 
-[ext_resource type="PackedScene" uid="uid://br7wpl2djh8bm" path="res://Scenes/juice/shockwave_scene.tscn" id="2_hdo7t"]
+[ext_resource type="Script" uid="uid://cx5kysa7qi3xd" path="res://Scripts/juice/shockwave_spawner.gd" id="1_ulplp"]
+[ext_resource type="PackedScene" uid="uid://ehi4vsv35dx3" path="res://Scenes/juice/shockwave_canvas.tscn" id="2_ulplp"]
 
-[node name="shockwave_spawner" type="CanvasLayer"]
-
-[node name="shockwave_scene" parent="." instance=ExtResource("2_hdo7t")]
-offset_left = 12.0
-offset_top = -6.0
-offset_right = 4646.0
-offset_bottom = 5226.0
+[node name="shockwave_spawner" type="Node"]
+script = ExtResource("1_ulplp")
+shockwave_scene = ExtResource("2_ulplp")

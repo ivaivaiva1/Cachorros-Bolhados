@@ -29,7 +29,7 @@ MouseCursorController="*res://Scenes/autoload/mouse_cursor_controller.tscn"
 DuplicateCats="*res://Scenes/autoload/duplicate_cats.tscn"
 SoundsDictionary="*res://Scenes/autoload/sounds_dictionary.tscn"
 MusicManager="*res://Scenes/autoload/music_manager.tscn"
-ShockShock="*res://Scenes/autoload/shock_shock.tscn"
+ShockWave="*res://Scenes/autoload/shockwave_spawner.tscn"
 
 [display]
 

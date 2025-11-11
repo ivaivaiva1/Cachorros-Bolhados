@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://i48va3nvsjfq" path="res://Scripts/adaptive_difficulty.gd" id="20_raj38"]
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="21_rajel"]
 [ext_resource type="PackedScene" uid="uid://d1bqxohsmdbsv" path="res://Scenes/mechanics/bloon.tscn" id="24_8e0uq"]
-[ext_resource type="PackedScene" uid="uid://ehi4vsv35dx3" path="res://Scenes/autoload/shockwave_spawner.tscn" id="24_i0vto"]
+[ext_resource type="PackedScene" uid="uid://ehi4vsv35dx3" path="res://Scenes/juice/shockwave_canvas.tscn" id="24_i0vto"]
 [ext_resource type="PackedScene" uid="uid://rbsky2n1tifv" path="res://Scenes/mechanics/linha_duplicadora.tscn" id="24_raj38"]
 [ext_resource type="PackedScene" uid="uid://br7wpl2djh8bm" path="res://Scenes/juice/shockwave_scene.tscn" id="25_3jf1l"]
 [ext_resource type="Script" uid="uid://fobwgtmg0ajp" path="res://Scripts/controllers/event_spawner_prov.gd" id="25_8e0uq"]
