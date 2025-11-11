@@ -26,10 +26,10 @@ ScreenShake="*res://Scenes/juice/screen_shake.tscn"
 SfxManager="*res://Scenes/autoload/sfx_manager.tscn"
 HitFreeze="*res://Scenes/autoload/hit_freeze.tscn"
 MouseCursorController="*res://Scenes/autoload/mouse_cursor_controller.tscn"
-ShockwaveSpawner="*res://Scenes/autoload/shockwave_spawner.tscn"
 DuplicateCats="*res://Scenes/autoload/duplicate_cats.tscn"
 SoundsDictionary="*res://Scenes/autoload/sounds_dictionary.tscn"
 MusicManager="*res://Scenes/autoload/music_manager.tscn"
+ShockShock="*res://Scenes/autoload/shock_shock.tscn"
 
 [display]
 

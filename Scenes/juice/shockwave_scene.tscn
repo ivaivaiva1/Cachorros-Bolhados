@@ -14,7 +14,7 @@ uniform float thickness; // espessura do anel
 
 void fragment() {
     // UV agora é relativo ao ColorRect, não à tela
-    vec2 scaledUV = UV;
+    vec2 scaledUV = center + (UV - center) * 20.0;
 
     // cria o anel suave do efeito
     float mask = (1.0 - smoothstep(size - 0.1, size, length(scaledUV - center))) *
@@ -31,25 +31,7 @@ void fragment() {
 }
 
 
-
-
-//shader_type canvas_item;
-//
-//uniform sampler2D SCREEN_TEXTURE: hint_screen_texture;
-//uniform vec2 center;
-//uniform float force;
-//uniform float size;
-//uniform float thickness;
-//
-//void fragment() {
-    //float ratio = SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y;
-    //vec2 scaledUV = (SCREEN_UV - vec2(0.5, 0.0)) / vec2(ratio, 1.0) + vec2(0.0, 0.5);
-    //float mask = (1.0 - smoothstep(size - 0.1, size, length(scaledUV - center))) *
-    	//smoothstep(size - thickness - 0.1, size - thickness, length(scaledUV - center));
-    //vec2 disp = normalize(scaledUV - center) * force * mask;
-    //COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
-    ////COLOR.rgb = vec3(mask);
-//}"
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lujfa"]
 shader = SubResource("Shader_ye4k7")
@@ -63,8 +45,8 @@ material = SubResource("ShaderMaterial_lujfa")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -926.0
-offset_bottom = -328.0
+offset_right = 4634.0
+offset_bottom = 5232.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

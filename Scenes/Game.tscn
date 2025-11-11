@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2cj22y8bkni4"]
+[gd_scene load_steps=31 format=3 uid="uid://d2cj22y8bkni4"]
 
 [ext_resource type="Script" uid="uid://dnjf0fgnvuhy1" path="res://Scripts/background.gd" id="1_ewpxn"]
 [ext_resource type="Script" uid="uid://ddrasymxcaq5j" path="res://Scripts/game.gd" id="1_o3eg0"]
@@ -20,7 +20,9 @@
 [ext_resource type="Script" uid="uid://i48va3nvsjfq" path="res://Scripts/adaptive_difficulty.gd" id="20_raj38"]
 [ext_resource type="Texture2D" uid="uid://bjetlqh6i8x7r" path="res://icon.svg" id="21_rajel"]
 [ext_resource type="PackedScene" uid="uid://d1bqxohsmdbsv" path="res://Scenes/mechanics/bloon.tscn" id="24_8e0uq"]
+[ext_resource type="PackedScene" uid="uid://ehi4vsv35dx3" path="res://Scenes/autoload/shockwave_spawner.tscn" id="24_i0vto"]
 [ext_resource type="PackedScene" uid="uid://rbsky2n1tifv" path="res://Scenes/mechanics/linha_duplicadora.tscn" id="24_raj38"]
+[ext_resource type="PackedScene" uid="uid://br7wpl2djh8bm" path="res://Scenes/juice/shockwave_scene.tscn" id="25_3jf1l"]
 [ext_resource type="Script" uid="uid://fobwgtmg0ajp" path="res://Scripts/controllers/event_spawner_prov.gd" id="25_8e0uq"]
 [ext_resource type="PackedScene" uid="uid://bgwmxpcndenmw" path="res://Scenes/mechanics/basket.tscn" id="26_i0vto"]
 
@@ -34,6 +36,44 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvhu1"]
 radius = 219.2282
+
+[sub_resource type="Shader" id="Shader_ye4k7"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
+uniform vec2 center;     // centro relativo ao ColorRect (0–1)
+uniform float force;     // intensidade da distorção
+uniform float size;      // raio
+uniform float thickness; // espessura do anel
+
+void fragment() {
+    // UV agora é relativo ao ColorRect, não à tela
+    vec2 scaledUV = center + (UV - center) * 80.0;
+
+    // cria o anel suave do efeito
+    float mask = (1.0 - smoothstep(size - 0.1, size, length(scaledUV - center))) *
+        smoothstep(size - thickness - 0.1, size - thickness, length(scaledUV - center));
+
+    // calcula o deslocamento radial
+    vec2 disp = normalize(scaledUV - center) * force * mask;
+
+    // aplica a distorção na imagem da tela
+    COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
+
+    // debug opcional:
+    //COLOR.rgb = vec3(mask);
+}
+
+
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8e0uq"]
+shader = SubResource("Shader_ye4k7")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.02
+shader_parameter/size = 2.945
+shader_parameter/thickness = 0.25
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o3eg0")
@@ -364,7 +404,6 @@ script = ExtResource("17_lbihj")
 
 [node name="wave_area" type="Area2D" parent="MouseWave"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(311, 398)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseWave/wave_area"]
@@ -375,5 +414,15 @@ visible = false
 modulate = Color(1, 1, 1, 0.2901961)
 scale = Vector2(1.6875, 1.6875)
 texture = ExtResource("21_rajel")
+
+[node name="shockwave_spawner" parent="." instance=ExtResource("24_i0vto")]
+visible = false
+
+[node name="shockwave_scene2" parent="shockwave_spawner" instance=ExtResource("25_3jf1l")]
+material = SubResource("ShaderMaterial_8e0uq")
+offset_left = -2688.0
+offset_top = -2602.0
+offset_right = 1946.0
+offset_bottom = 2630.0
 
 [connection signal="area_entered" from="GameOverArea" to="GameOverArea" method="_on_area_entered"]
