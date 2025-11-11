@@ -1,17 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbjkejexexgc"]
+[gd_scene load_steps=9 format=3 uid="uid://cbjkejexexgc"]
 
 [ext_resource type="Script" uid="uid://bruh1o1ojlpky" path="res://Scripts/cachorros.gd" id="1_lgsod"]
+[ext_resource type="Shader" uid="uid://0rrmpeipav2l" path="res://Shaders/glow_shader.gdshader" id="1_w10c6"]
 [ext_resource type="Texture2D" uid="uid://bp63fcej3u8g1" path="res://Assets/Artes/Cachorro4.png" id="2_lgsod"]
-[ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="2_mqut0"]
+[ext_resource type="Script" uid="uid://dwgloteeihjt1" path="res://Scripts/juice/gold_effect_controller.gd" id="4_8v3i8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n34ai"]
 friction = 0.0
 bounce = 0.8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8v3i8"]
-shader = ExtResource("2_mqut0")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_pct = 0.0
+shader = ExtResource("1_w10c6")
+shader_parameter/radius = 1.02
+shader_parameter/amount = 0.52
+shader_parameter/flash_color = Color(0.9764706, 0.8117647, 0, 1)
+shader_parameter/flash_pct = 0.770000036575
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n34ai"]
 radius = 18.248287
@@ -46,6 +49,10 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2.98023e-08, -0.3125)
 shape = SubResource("CircleShape2D_gs7ud")
+
+[node name="gold_effect_controller" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_8v3i8")
+sprite = NodePath("../sprite_container/Sprite2D")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -63,4 +63,4 @@ func do_shockwave(pos: Vector2):
 	# Quando o tween terminar, remove a instância
 	tween.finished.connect(func():
 		if is_instance_valid(shockwave_instance):
-			shockwave_instance.queue_free())
+			canvas_layer_instance.queue_free())

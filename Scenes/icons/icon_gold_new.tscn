@@ -6,10 +6,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ovt2"]
 shader = ExtResource("1_mhkkk")
-shader_parameter/radius = 1.0
-shader_parameter/amount = 0.655
-shader_parameter/flash_color = Color(1, 0.8333334, 0, 1)
-shader_parameter/flash_pct = 0.666000031635
+shader_parameter/radius = 1.02
+shader_parameter/amount = 0.52
+shader_parameter/flash_color = Color(0.97563154, 0.8133434, 0, 1)
+shader_parameter/flash_pct = 0.770000036575
 
 [node name="icon_gold" type="Sprite2D"]
 z_index = -90

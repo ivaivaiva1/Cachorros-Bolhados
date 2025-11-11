@@ -1,16 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsn07wmxvppiy"]
 
-[ext_resource type="Shader" uid="uid://dkp8ostnqclq5" path="res://Shaders/blink.gdshader" id="1_x5uqe"]
+[ext_resource type="Shader" uid="uid://0rrmpeipav2l" path="res://Shaders/glow_shader.gdshader" id="1_x5uqe"]
 [ext_resource type="Texture2D" uid="uid://bp63fcej3u8g1" path="res://Assets/Artes/Cachorro4.png" id="2_7d3em"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ovt2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7d3em"]
 shader = ExtResource("1_x5uqe")
-shader_parameter/flash_color = Color(0.19999981, 0, 1, 1)
-shader_parameter/flash_pct = 0.6870000326325
+shader_parameter/radius = 1.1400000000000001
+shader_parameter/amount = 0.345
+shader_parameter/flash_color = Color(0.31764707, 0.07058824, 1, 1)
+shader_parameter/flash_pct = 0.80400003819
 
 [node name="icon_prismatic" type="Sprite2D"]
 z_index = -90
-material = SubResource("ShaderMaterial_5ovt2")
+material = SubResource("ShaderMaterial_7d3em")
 scale = Vector2(0.11, 0.11)
 texture = ExtResource("2_7d3em")
 offset = Vector2(0, 78.195)

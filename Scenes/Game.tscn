@@ -165,7 +165,7 @@ position = Vector2(695, 1047)
 shape = SubResource("RectangleShape2D_f3cqs")
 
 [node name="GameOverArea" type="Area2D" parent="." groups=["game_over"]]
-position = Vector2(0, -1239)
+position = Vector2(-19, -1286)
 script = ExtResource("20_356ba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverArea"]
